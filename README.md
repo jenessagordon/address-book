@@ -12,7 +12,6 @@ contact that can be included are:
     - Address 
     - Phone number 
     - Email
-    - Photo 
     - Birthday 
     - Date the contact is added 
     - Where the user met them
