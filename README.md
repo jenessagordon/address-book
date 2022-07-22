@@ -5,7 +5,7 @@ It is unique from ordinary address books because it lets the user organize
 their contacts according to the relationship they have with each contact 
 (i.e. whether the contact is a friend, family member, professional contact, 
 or other.) The other, less original features that the user has access to are:
-1. The ability to add a new contact to the address book. Attributes for each 
+1. The ability to add one or multiple new contact(s) to the address book. Attributes for each 
 contact that can be included are:
     - First name 
     - Last name 
@@ -27,7 +27,7 @@ enable me to focus more on the programming concepts that I am learning and less 
 want to implement.
 
 ## User Stories
-- As a user, I want to be able to add a new contact to my address book.
+- As a user, I want to be able to add one or more new contact(s) to my address book.
 - As a user, I want to be able to delete a contact from my address book.
 - As a user, I want to be able to view a list of all of my contacts.
 - As a user, I want to be able to separate my contacts into friends, family, work contacts, and other contacts.
