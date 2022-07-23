@@ -3,7 +3,6 @@ package model;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -142,7 +141,6 @@ public class TestContactList {
 
     @Test
     public void testAddContactSingle() {
-        // testListOfContacts.add(testContact1);
         testContactList.addContact("Molly Brown",
                 "178 Turner Road, Vancouver, BC, V8L 9E2",
                 "(604) 902-3789",
@@ -154,33 +152,10 @@ public class TestContactList {
         assertEquals(1, testContactList.getListOfContacts().size());
         Contact contact1 = testContactList.getListOfContacts().get(0);
         assertTrue(contactFieldsEqual(testContact1, contact1));
-//        ArrayList<Integer> testArrayList1 = new ArrayList<>();
-//        testArrayList1.add(3);
-//        testArrayList1.add(5);
-//        ArrayList<Integer> testArrayList2 = new ArrayList<>();
-//        testArrayList2.add(3);
-//        testArrayList2.add(5);
-//        assertTrue(Objects.equals(testArrayList1, testArrayList2));
-//        Contact testContact1Counterfeit = new Contact(
-//                "Molly Brown",
-//                "178 Turner Road, Vancouver, BC, V8L 9E2",
-//                "(604) 902-3789",
-//                "mollybrown@gmail.com",
-//                "January 9, 2000",
-//                "July 21, 2022",
-//                "Walter Gage",
-//                Contact.Category.FRIEND);
-//        assertTrue(Objects.equals(testContact1.getFullName(), testContact1Counterfeit.getFullName()));
-//        assertTrue(Objects.equals(testListOfContacts, testContactList.getListOfContacts()));
-//        assertTrue(listsAreEqual(testListOfContacts, testContactList.getListOfContacts()));
-//        assertArrayEquals(testArrayList1, testArrayList2);
-//        assertArrayEquals(testListOfContacts, testContactList.getListOfContacts());
     }
 
     @Test
     public void testAddContactCumulative() {
-//        testListOfContacts.add(testContact1);
-//        testListOfContacts.add(testContact2);
         testContactList.addContact("Molly Brown",
                 "178 Turner Road, Vancouver, BC, V8L 9E2",
                 "(604) 902-3789",
@@ -197,7 +172,6 @@ public class TestContactList {
                 "May 1, 2022",
                 "Business conference",
                 Contact.Category.WORK);
-//        assertEquals(testListOfContacts, testContactList.getListOfContacts());
         assertEquals(2, testContactList.getListOfContacts().size());
         Contact contact1 = testContactList.getListOfContacts().get(0);
         assertTrue(contactFieldsEqual(testContact1, contact1));
@@ -218,13 +192,11 @@ public class TestContactList {
                 Contact.Category.FRIEND);
         testContactList.removeContact("Molly Brown");
         assertEquals(0, testContactList.getListOfContacts().size());
-        // assertEquals(testListOfContacts, testContactList.getListOfContacts());
     }
 
     // removes two Contacts from a listOfContacts of size 3
     @Test
     public void testRemoveContactCumulative() {
-        // testListOfContacts.add(testContact1);
         testContactList.addContact("Molly Brown",
                 "178 Turner Road, Vancouver, BC, V8L 9E2",
                 "(604) 902-3789",
@@ -251,7 +223,6 @@ public class TestContactList {
                 Contact.Category.OTHER);
         testContactList.removeContact("Bob Li");
         testContactList.removeContact("Julie Allo");
-        // assertEquals(testListOfContacts, testContactList.getListOfContacts());
         assertEquals(1, testContactList.getListOfContacts().size());
         Contact contact1 = testContactList.getListOfContacts().get(0);
         assertTrue(contactFieldsEqual(testContact1, contact1));

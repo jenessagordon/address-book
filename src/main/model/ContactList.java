@@ -6,7 +6,7 @@ import java.util.Objects;
 
 // Represents an arbitrarily-sized list of Contacts. INVARIANT: fullName of all contacts is unique.
 public class ContactList {
-    ArrayList<Contact> listOfContacts;
+    List<Contact> listOfContacts;
 
     // EFFECTS: creates a ContactList whose listOfContacts is an empty ArrayList
     public ContactList() {
@@ -27,7 +27,7 @@ public class ContactList {
     // MODIFIES: this
     // EFFECTS: removes Contact with given name from listOfContacts
     public void removeContact(String fullName) {
-        listOfContacts.removeIf(c -> (c.getFullName() == fullName));
+        listOfContacts.removeIf(c -> (Objects.equals(c.getFullName(), fullName)));
     }
 
     // EFFECTS: returns all Contacts in listOfContacts as a String, ordered by category: FAMILY->FRIEND->WORK->OTHER,
@@ -55,16 +55,16 @@ public class ContactList {
 
     // EFFECTS: returns all Contacts of Category category in listOfContacts as a String, "" if none
     public String contactsOfCategoryToString(Contact.Category category) {
-        String acc = "";
+        StringBuilder acc = new StringBuilder();
         for (Contact c : listOfContacts) {
             if (Objects.equals(c.getCategory(), category)) {
-                acc += "\n" + c.contactToString();
+                acc.append("\n").append(c.contactToString());
             }
         }
-        return acc;
+        return acc.toString();
     }
 
-    public ArrayList<Contact> getListOfContacts() {
+    public List<Contact> getListOfContacts() {
         return listOfContacts;
     }
 
