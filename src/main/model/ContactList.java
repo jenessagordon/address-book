@@ -32,20 +32,6 @@ public class ContactList {
 
     // EFFECTS: returns all Contacts in listOfContacts as a String, ordered by category: FAMILY->FRIEND->WORK->OTHER,
     // "" if none
-
-    // ContactList.contactsOfCategoryToString gives:
-    // empty line
-    // CATEGORY1: result from Contact.contactToString (includes ----------)
-    // empty line
-    // CATEGORY1: result from Contact.contactToString (includes ----------)
-
-    // so to combine multiple categories, we just combine each category to get
-    // empty line
-    // CATEGORY1: result from Contact.contactToString (includes ----------)
-    // empty line
-    // CATEGORY1: result from Contact.contactToString (includes ----------)
-    // empty line
-    // CATEGORY2: result from Contact.contactToString (includes ----------)
     public String listOfContactsToString() {
         return  contactsOfCategoryToString(Contact.Category.FAMILY)
                 + contactsOfCategoryToString(Contact.Category.FRIEND)

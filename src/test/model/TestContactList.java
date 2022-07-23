@@ -414,14 +414,14 @@ public class TestContactList {
 
     // EFFECTS: return true iff the contents of all the fields of both Contacts are equal
     private boolean contactFieldsEqual(Contact contactA, Contact contactB) {
-        return Objects.equals(contactA.getFullName(), contactB.getFullName()) &&
-                Objects.equals(contactA.getAddress(), contactB.getAddress()) &&
-                Objects.equals(contactA.getPhoneNum(), contactB.getPhoneNum()) &&
-                Objects.equals(contactA.getEmail(), contactB.getEmail()) &&
-                Objects.equals(contactA.getBirthday(), contactB.getBirthday()) &&
-                Objects.equals(contactA.getDateAdded(), contactB.getDateAdded()) &&
-                Objects.equals(contactA.getLocationMet(), contactB.getLocationMet()) &&
-                Objects.equals(contactA.getCategory(), contactB.getCategory());
+        return Objects.equals(contactA.getFullName(), contactB.getFullName())
+                && Objects.equals(contactA.getAddress(), contactB.getAddress())
+                && Objects.equals(contactA.getPhoneNum(), contactB.getPhoneNum())
+                && Objects.equals(contactA.getEmail(), contactB.getEmail())
+                && Objects.equals(contactA.getBirthday(), contactB.getBirthday())
+                && Objects.equals(contactA.getDateAdded(), contactB.getDateAdded())
+                && Objects.equals(contactA.getLocationMet(), contactB.getLocationMet())
+                && Objects.equals(contactA.getCategory(), contactB.getCategory());
     }
 
     @Test
