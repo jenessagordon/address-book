@@ -47,7 +47,10 @@ public class ContactList {
     // empty line
     // CATEGORY2: result from Contact.contactToString (includes ----------)
     public String listOfContactsToString() {
-        return null; // stub
+        return  contactsOfCategoryToString(Contact.Category.FAMILY)
+                + contactsOfCategoryToString(Contact.Category.FRIEND)
+                + contactsOfCategoryToString(Contact.Category.WORK)
+                + contactsOfCategoryToString(Contact.Category.OTHER);
     }
 
     // EFFECTS: returns all Contacts of Category category in listOfContacts as a String, "" if none
