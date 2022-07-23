@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 // Represents an arbitrarily-sized list of Contacts. INVARIANT: fullName of all contacts is unique.
 public class ContactList {
@@ -49,9 +50,15 @@ public class ContactList {
         return null; // stub
     }
 
-    // EFFECTS: returns all Contacts in listOfContacts as a String, "" if none
+    // EFFECTS: returns all Contacts of Category category in listOfContacts as a String, "" if none
     public String contactsOfCategoryToString(Contact.Category category) {
-        return null; // stub
+        String acc = "";
+        for (Contact c : listOfContacts) {
+            if (Objects.equals(c.getCategory(), category)) {
+                acc += "\n" + c.contactToString();
+            }
+        }
+        return acc;
     }
 
     public ArrayList<Contact> getListOfContacts() {
