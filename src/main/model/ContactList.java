@@ -1,12 +1,15 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+// Represents an arbitrarily-sized list of Contacts. INVARIANT: fullName of all contacts is unique.
 public class ContactList {
+    ArrayList<Contact> listOfContacts;
 
     // EFFECTS: creates a ContactList whose listOfContacts is an empty ArrayList
     public ContactList() {
-        // stub
+        listOfContacts = new ArrayList<>();
     }
 
     // REQUIRES: any contact with the given fullName is not already in listOfContacts
@@ -16,14 +19,14 @@ public class ContactList {
                            String phoneNum, String email,
                            String birthday, String dateAdded,
                            String locationMet, Contact.Category category) {
-        // stub
+        listOfContacts.add(new Contact(fullName, address, phoneNum, email, birthday, dateAdded, locationMet, category));
     }
 
     // REQUIRES: fullName is a fullName of exactly one contact in listOfContacts
     // MODIFIES: this
     // EFFECTS: removes Contact with given name from listOfContacts
     public void removeContact(String fullName) {
-        // stub
+        listOfContacts.removeIf(c -> (c.getFullName() == fullName));
     }
 
     // EFFECTS: returns all Contacts in listOfContacts as a String, ordered by category: FAMILY->FRIEND->WORK->OTHER,
@@ -51,8 +54,8 @@ public class ContactList {
         return null; // stub
     }
 
-    public ArrayList getListOfContacts() {
-        return new ArrayList<>(); // stub
+    public ArrayList<Contact> getListOfContacts() {
+        return listOfContacts;
     }
 
 }

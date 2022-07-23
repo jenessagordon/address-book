@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -140,7 +142,7 @@ public class TestContactList {
 
     @Test
     public void testAddContactSingle() {
-        testListOfContacts.add(testContact1);
+        // testListOfContacts.add(testContact1);
         testContactList.addContact("Molly Brown",
                 "178 Turner Road, Vancouver, BC, V8L 9E2",
                 "(604) 902-3789",
@@ -149,13 +151,36 @@ public class TestContactList {
                 "July 21, 2022",
                 "Walter Gage",
                 Contact.Category.FRIEND);
-        assertEquals(testListOfContacts, testContactList.getListOfContacts());
+        assertEquals(1, testContactList.getListOfContacts().size());
+        Contact contact1 = testContactList.getListOfContacts().get(0);
+        assertTrue(contactFieldsEqual(testContact1, contact1));
+//        ArrayList<Integer> testArrayList1 = new ArrayList<>();
+//        testArrayList1.add(3);
+//        testArrayList1.add(5);
+//        ArrayList<Integer> testArrayList2 = new ArrayList<>();
+//        testArrayList2.add(3);
+//        testArrayList2.add(5);
+//        assertTrue(Objects.equals(testArrayList1, testArrayList2));
+//        Contact testContact1Counterfeit = new Contact(
+//                "Molly Brown",
+//                "178 Turner Road, Vancouver, BC, V8L 9E2",
+//                "(604) 902-3789",
+//                "mollybrown@gmail.com",
+//                "January 9, 2000",
+//                "July 21, 2022",
+//                "Walter Gage",
+//                Contact.Category.FRIEND);
+//        assertTrue(Objects.equals(testContact1.getFullName(), testContact1Counterfeit.getFullName()));
+//        assertTrue(Objects.equals(testListOfContacts, testContactList.getListOfContacts()));
+//        assertTrue(listsAreEqual(testListOfContacts, testContactList.getListOfContacts()));
+//        assertArrayEquals(testArrayList1, testArrayList2);
+//        assertArrayEquals(testListOfContacts, testContactList.getListOfContacts());
     }
 
     @Test
     public void testAddContactCumulative() {
-        testListOfContacts.add(testContact1);
-        testListOfContacts.add(testContact2);
+//        testListOfContacts.add(testContact1);
+//        testListOfContacts.add(testContact2);
         testContactList.addContact("Molly Brown",
                 "178 Turner Road, Vancouver, BC, V8L 9E2",
                 "(604) 902-3789",
@@ -172,7 +197,12 @@ public class TestContactList {
                 "May 1, 2022",
                 "Business conference",
                 Contact.Category.WORK);
-        assertEquals(testListOfContacts, testContactList.getListOfContacts());
+//        assertEquals(testListOfContacts, testContactList.getListOfContacts());
+        assertEquals(2, testContactList.getListOfContacts().size());
+        Contact contact1 = testContactList.getListOfContacts().get(0);
+        assertTrue(contactFieldsEqual(testContact1, contact1));
+        Contact contact2 = testContactList.getListOfContacts().get(1);
+        assertTrue(contactFieldsEqual(testContact2, contact2));
     }
 
     // removes a single Contact from a listOfContacts of size 1
@@ -187,13 +217,14 @@ public class TestContactList {
                 "Walter Gage",
                 Contact.Category.FRIEND);
         testContactList.removeContact("Molly Brown");
-        assertEquals(testListOfContacts, testContactList.getListOfContacts());
+        assertEquals(0, testContactList.getListOfContacts().size());
+        // assertEquals(testListOfContacts, testContactList.getListOfContacts());
     }
 
     // removes two Contacts from a listOfContacts of size 3
     @Test
     public void testRemoveContactCumulative() {
-        testListOfContacts.add(testContact1);
+        // testListOfContacts.add(testContact1);
         testContactList.addContact("Molly Brown",
                 "178 Turner Road, Vancouver, BC, V8L 9E2",
                 "(604) 902-3789",
@@ -220,7 +251,10 @@ public class TestContactList {
                 Contact.Category.OTHER);
         testContactList.removeContact("Bob Li");
         testContactList.removeContact("Julie Allo");
-        assertEquals(testListOfContacts, testContactList.getListOfContacts());
+        // assertEquals(testListOfContacts, testContactList.getListOfContacts());
+        assertEquals(1, testContactList.getListOfContacts().size());
+        Contact contact1 = testContactList.getListOfContacts().get(0);
+        assertTrue(contactFieldsEqual(testContact1, contact1));
     }
 
     @Test
@@ -403,5 +437,47 @@ public class TestContactList {
         assertEquals("\n" + testContact3ContactToStringResult
                         + "\n" + testContact4ContactToStringResult,
                 testContactList.contactsOfCategoryToString(Contact.Category.OTHER));
+    }
+
+    // TESTING HELPER METHOD(S) & TEST(S)
+
+    // EFFECTS: return true iff the contents of all the fields of both Contacts are equal
+    private boolean contactFieldsEqual(Contact contactA, Contact contactB) {
+        return Objects.equals(contactA.getFullName(), contactB.getFullName()) &&
+                Objects.equals(contactA.getAddress(), contactB.getAddress()) &&
+                Objects.equals(contactA.getPhoneNum(), contactB.getPhoneNum()) &&
+                Objects.equals(contactA.getEmail(), contactB.getEmail()) &&
+                Objects.equals(contactA.getBirthday(), contactB.getBirthday()) &&
+                Objects.equals(contactA.getDateAdded(), contactB.getDateAdded()) &&
+                Objects.equals(contactA.getLocationMet(), contactB.getLocationMet()) &&
+                Objects.equals(contactA.getCategory(), contactB.getCategory());
+    }
+
+    @Test
+    public void testcontactFieldsEqualReturnTrue() {
+        Contact contactFieldsEqualTestContact1 = new Contact(
+                "Molly Brown",
+                "178 Turner Road, Vancouver, BC, V8L 9E2",
+                "(604) 902-3789",
+                "mollybrown@gmail.com",
+                "January 9, 2000",
+                "July 21, 2022",
+                "Walter Gage",
+                Contact.Category.FRIEND);
+        assertTrue(contactFieldsEqual(testContact1, contactFieldsEqualTestContact1));
+    }
+
+    @Test
+    public void testcontactFieldsEqualReturnFalse() {
+        Contact contactFieldsEqualTestContact1 = new Contact(
+                "Molly Brown",
+                "178 Turner Road, Vancouver, BC, V8L 9E2",
+                "(604) 902-3789",
+                "mollybrown@gmail.com",
+                "January 9, 2000",
+                "July 21, 2022",
+                "Walter Gage",
+                Contact.Category.OTHER);
+        assertFalse(contactFieldsEqual(testContact1, contactFieldsEqualTestContact1));
     }
 }
