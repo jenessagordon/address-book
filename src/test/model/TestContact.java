@@ -34,15 +34,14 @@ class TestContact {
 
     @Test
     public void testContactToString() {
-        assertEquals("Full name: " + "Molly Brown" + "\n" +
-        "Address: " + "178 Turner Rd, Vancouver, BC, V8L 9E2" + "\n" +
-        "Phone number: " + "(604) 902-3789" + "\n" +
-        "Email: " + "mollybrown@gmail.com" + "\n" +
-        "Birthday: " + "January 9, 2000" + "\n" +
-        "Date added: " + "July 21, 2022" + "\n" +
-        "Location met: " + "Walter Gage" + "\n" +
-        "Category: " + Contact.Category.FRIEND + "\n" +
-        "-------------------",
-        contact.contactToString());
+        assertEquals("Full name: " + "Molly Brown" + "\n"
+                        + "Address: " + "178 Turner Rd, Vancouver, BC, V8L 9E2" + "\n"
+                        + "Phone number: " + "(604) 902-3789" + "\n"
+                        + "Email: " + "mollybrown@gmail.com" + "\n"
+                        + "Birthday: " + "January 9, 2000" + "\n"
+                        + "Date added: " + "July 21, 2022" + "\n"
+                        + "Location met: " + "Walter Gage" + "\n"
+                        + "Category: " + Contact.Category.FRIEND + "\n"
+                        + "-------------------", contact.contactToString());
     }
 }

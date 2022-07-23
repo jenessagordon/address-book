@@ -26,7 +26,9 @@ public class ContactList {
         // stub
     }
 
-    // EFFECTS: returns all Contacts in listOfContacts as a String, ordered by category: FAMILY->FRIEND->WORK->OTHER
+    // EFFECTS: returns all Contacts in listOfContacts as a String, ordered by category: FAMILY->FRIEND->WORK->OTHER,
+    // "" if none
+
     // ContactList.contactsOfCategoryToString gives:
     // empty line
     // CATEGORY1: result from Contact.contactToString (includes ----------)
