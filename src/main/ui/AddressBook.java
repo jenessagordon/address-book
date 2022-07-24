@@ -2,8 +2,10 @@ package ui;
 
 // Code in this class inspired by/copied from https://github.students.cs.ubc.ca/CPSC210/TellerApp
 
+import model.Contact;
 import model.ContactList;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 // Address book application that lets user add Contacts, remove Contacts, and print all of their contacts to the
@@ -21,7 +23,7 @@ public class AddressBook {
     // EFFECTS: initializes a ContactList and processes user input
     private void runAddressBook() {
         boolean keepGoing = true;
-        String command = null;
+        String command;
 
         init();
 
@@ -74,21 +76,56 @@ public class AddressBook {
     // MODIFIES: this
     // EFFECTS: adds Contact to contactList using input from user
     private void addContact() {
-        // stub
+        System.out.println("Enter the full name of the contact you wish to add:");
+        String fullNameInput = input.next();
+        System.out.println("Enter the address:");
+        String addressInput = input.next();
+        System.out.println("Enter the phone number:");
+        String phoneNumInput = input.next();
+        System.out.println("Enter the email:");
+        String emailInput = input.next();
+        System.out.println("Enter the birthday:");
+        String birthdayInput = input.next();
+        System.out.println("Enter today's date:");
+        String dateAddedInput = input.next();
+        System.out.println("Enter the name of the location where you met them:");
+        String locationMetInput = input.next();
+        System.out.println("Enter a category that is one of 'family', 'friend', 'work', or 'other':");
+        Contact.Category categoryInput = stringToCategory(input.next());
+        contactList.addContact(fullNameInput, addressInput,
+                phoneNumInput, emailInput,
+                birthdayInput, dateAddedInput,
+                locationMetInput, categoryInput);
+        System.out.println("Contact added successfully!");
     }
 
     // REQUIRES: user enters a string that matches the fullName of a Contact in listOfContacts
     // MODIFIES: this
     // EFFECTS: removes Contact with name specified by user from contactList's listOfContacts
     private void removeContact() {
-        System.out.println("Enter the full name of the contact you wish to remove: ");
+        System.out.println("Enter the full name of the contact you wish to remove:");
         String fullNameInput = input.next();
         contactList.removeContact(fullNameInput);
         System.out.println("Contact deleted successfully.");
     }
 
-    // EFFECTS: prints list of all contacts, ordered by category; prints "" if contactList's listOfContacts is empty
+    // EFFECTS: prints list of all contacts, ordered by category; prints "\n" if contactList's listOfContacts is empty
     private void printAllContacts() {
-        // stub
+        System.out.println("YOUR CONTACT LIST:");
+        System.out.println(contactList.listOfContactsToString());
+    }
+
+    // REQUIRES: stringCategoryInput is one of: "family", "friend", "work", or "other"
+    // EFFECTS: returns Contact.Category corresponding to stringCategoryInput
+    private Contact.Category stringToCategory(String stringCategoryInput) {
+        if (Objects.equals(stringCategoryInput, "family")) {
+            return Contact.Category.FAMILY;
+        } else if (Objects.equals(stringCategoryInput, "friend")) {
+            return Contact.Category.FRIEND;
+        } else if (Objects.equals(stringCategoryInput, "work")) {
+            return Contact.Category.WORK;
+        } else {
+            return Contact.Category.OTHER;
+        }
     }
 }

@@ -26,7 +26,7 @@ public class TestContactList {
         testContactList = new ContactList();
         testContact1 = new Contact(
                 "Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
+                "178 Turner Road, Vancouver BC, V8L 9E2",
                 "(604) 902-3789",
                 "mollybrown@gmail.com",
                 "January 9, 2000",
@@ -35,7 +35,7 @@ public class TestContactList {
                 Contact.Category.FRIEND);
         testContact2 = new Contact(
                 "Bob Li",
-                "1345 Blankar Terrace, Edmonton, AB, H7T 9P4",
+                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
                 "(403) 124-6784",
                 "bobli@gmail.com",
                 "November 16, 1999",
@@ -44,7 +44,7 @@ public class TestContactList {
                 Contact.Category.WORK);
         testContact3 = new Contact(
                 "Julie Allo",
-                "4 Ruffert Street, Kelowna, BC, A5T 2Y6",
+                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
                 "(604) 854-4397",
                 "julieallow@gmail.com",
                 "",
@@ -53,7 +53,7 @@ public class TestContactList {
                 Contact.Category.OTHER);
         testContact4 = new Contact(
                 "",
-                "56 Singer Crescent, Canmore, AB, R3E 8I4",
+                "56 Singer Crescent, Canmore AB, R3E 8I4",
                 "(403) 223-3421",
                 "hair@thehairplace.com",
                 "",
@@ -62,7 +62,7 @@ public class TestContactList {
                 Contact.Category.OTHER);
         testContact5 = new Contact(
                 "Pete Hamilton",
-                "21 Throllalach Way, Vancouver, BC, N2D 7H1",
+                "21 Throllalach Way, Vancouver BC, N2D 7H1",
                 "(403) 893-2343",
                 "peteham@hotmail.com",
                 "July 7, 1970",
@@ -70,7 +70,7 @@ public class TestContactList {
                 "",
                 Contact.Category.FAMILY);
         testListOfContactsToStringResult = "\n" + "Full name: " + "Pete Hamilton" + "\n"
-                + "Address: " + "21 Throllalach Way, Vancouver, BC, N2D 7H1" + "\n"
+                + "Address: " + "21 Throllalach Way, Vancouver BC, N2D 7H1" + "\n"
                 + "Phone number: " + "(403) 893-2343" + "\n"
                 + "Email: " + "peteham@hotmail.com" + "\n"
                 + "Birthday: " + "July 7, 1970" + "\n"
@@ -79,7 +79,7 @@ public class TestContactList {
                 + "Category: " + Contact.Category.FAMILY + "\n"
                 + "-------------------"
                 + "\n" + "Full name: " + "Molly Brown" + "\n"
-                + "Address: " + "178 Turner Road, Vancouver, BC, V8L 9E2" + "\n"
+                + "Address: " + "178 Turner Road, Vancouver BC, V8L 9E2" + "\n"
                 + "Phone number: " + "(604) 902-3789" + "\n"
                 + "Email: " + "mollybrown@gmail.com" + "\n"
                 + "Birthday: " + "January 9, 2000" + "\n"
@@ -88,7 +88,7 @@ public class TestContactList {
                 + "Category: " + Contact.Category.FRIEND + "\n"
                 + "-------------------"
                 + "\n" + "Full name: " + "Bob Li" + "\n"
-                + "Address: " + "1345 Blankar Terrace, Edmonton, AB, H7T 9P4" + "\n"
+                + "Address: " + "1345 Blankar Terrace, Edmonton AB, H7T 9P4" + "\n"
                 + "Phone number: " + "(403) 124-6784" + "\n"
                 + "Email: " + "bobli@gmail.com" + "\n"
                 + "Birthday: " + "November 16, 1999" + "\n"
@@ -97,7 +97,7 @@ public class TestContactList {
                 + "Category: " + Contact.Category.WORK + "\n"
                 + "-------------------"
                 + "\n" + "Full name: " + "Julie Allo" + "\n"
-                + "Address: " + "4 Ruffert Street, Kelowna, BC, A5T 2Y6" + "\n"
+                + "Address: " + "4 Ruffert Street, Kelowna BC, A5T 2Y6" + "\n"
                 + "Phone number: " + "(604) 854-4397" + "\n"
                 + "Email: " + "julieallow@gmail.com" + "\n"
                 + "Birthday: " + "" + "\n"
@@ -106,7 +106,7 @@ public class TestContactList {
                 + "Category: " + Contact.Category.OTHER + "\n"
                 + "-------------------"
                 + "\n" + "Full name: " + "" + "\n"
-                + "Address: " + "56 Singer Crescent, Canmore, AB, R3E 8I4" + "\n"
+                + "Address: " + "56 Singer Crescent, Canmore AB, R3E 8I4" + "\n"
                 + "Phone number: " + "(403) 223-3421" + "\n"
                 + "Email: " + "hair@thehairplace.com" + "\n"
                 + "Birthday: " + "" + "\n"
@@ -115,7 +115,7 @@ public class TestContactList {
                 + "Category: " + Contact.Category.OTHER + "\n"
                 + "-------------------";
         testContact3ContactToStringResult = "Full name: " + "Julie Allo" + "\n"
-                + "Address: " + "4 Ruffert Street, Kelowna, BC, A5T 2Y6" + "\n"
+                + "Address: " + "4 Ruffert Street, Kelowna BC, A5T 2Y6" + "\n"
                 + "Phone number: " + "(604) 854-4397" + "\n"
                 + "Email: " + "julieallow@gmail.com" + "\n"
                 + "Birthday: " + "" + "\n"
@@ -124,7 +124,7 @@ public class TestContactList {
                 + "Category: " + Contact.Category.OTHER + "\n"
                 + "-------------------";
         testContact4ContactToStringResult = "Full name: " + "" + "\n"
-                + "Address: " + "56 Singer Crescent, Canmore, AB, R3E 8I4" + "\n"
+                + "Address: " + "56 Singer Crescent, Canmore AB, R3E 8I4" + "\n"
                 + "Phone number: " + "(403) 223-3421" + "\n"
                 + "Email: " + "hair@thehairplace.com" + "\n"
                 + "Birthday: " + "" + "\n"
@@ -141,14 +141,7 @@ public class TestContactList {
 
     @Test
     public void testAddContactSingle() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         assertEquals(1, testContactList.getListOfContacts().size());
         Contact contact1 = testContactList.getListOfContacts().get(0);
         assertTrue(contactFieldsEqual(testContact1, contact1));
@@ -156,16 +149,9 @@ public class TestContactList {
 
     @Test
     public void testAddContactCumulative() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         testContactList.addContact("Bob Li",
-                "1345 Blankar Terrace, Edmonton, AB, H7T 9P4",
+                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
                 "(403) 124-6784",
                 "bobli@gmail.com",
                 "November 16, 1999",
@@ -182,14 +168,7 @@ public class TestContactList {
     // removes a single Contact from a listOfContacts of size 1
     @Test
     public void testRemoveContactSingle() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         testContactList.removeContact("Molly Brown");
         assertEquals(0, testContactList.getListOfContacts().size());
     }
@@ -197,16 +176,9 @@ public class TestContactList {
     // removes two Contacts from a listOfContacts of size 3
     @Test
     public void testRemoveContactCumulative() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         testContactList.addContact("Bob Li",
-                "1345 Blankar Terrace, Edmonton, AB, H7T 9P4",
+                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
                 "(403) 124-6784",
                 "bobli@gmail.com",
                 "November 16, 1999",
@@ -214,7 +186,7 @@ public class TestContactList {
                 "Business conference",
                 Contact.Category.WORK);
         testContactList.addContact("Julie Allo",
-                "4 Ruffert Street, Kelowna, BC, A5T 2Y6",
+                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
                 "(604) 854-4397",
                 "julieallow@gmail.com",
                 "",
@@ -229,25 +201,24 @@ public class TestContactList {
     }
 
     @Test
+    public void setTestListOfContactsToStringEmpty() {
+        assertEquals("",
+                testContactList.listOfContactsToString());
+    }
+
+    @Test
     public void testListOfContactsToStringInOrder() {
         testContactList.addContact("Pete Hamilton",
-                "21 Throllalach Way, Vancouver, BC, N2D 7H1",
+                "21 Throllalach Way, Vancouver BC, N2D 7H1",
                 "(403) 893-2343",
                 "peteham@hotmail.com",
                 "July 7, 1970",
                 "October 16, 2007",
                 "",
                 Contact.Category.FAMILY);
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         testContactList.addContact("Bob Li",
-                "1345 Blankar Terrace, Edmonton, AB, H7T 9P4",
+                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
                 "(403) 124-6784",
                 "bobli@gmail.com",
                 "November 16, 1999",
@@ -255,7 +226,7 @@ public class TestContactList {
                 "Business conference",
                 Contact.Category.WORK);
         testContactList.addContact("Julie Allo",
-                "4 Ruffert Street, Kelowna, BC, A5T 2Y6",
+                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
                 "(604) 854-4397",
                 "julieallow@gmail.com",
                 "",
@@ -263,7 +234,7 @@ public class TestContactList {
                 "The hospital",
                 Contact.Category.OTHER);
         testContactList.addContact("",
-                "56 Singer Crescent, Canmore, AB, R3E 8I4",
+                "56 Singer Crescent, Canmore AB, R3E 8I4",
                 "(403) 223-3421",
                 "hair@thehairplace.com",
                 "",
@@ -276,16 +247,9 @@ public class TestContactList {
 
     @Test
     public void testListOfContactsToStringOutOfOrder() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         testContactList.addContact("Julie Allo",
-                "4 Ruffert Street, Kelowna, BC, A5T 2Y6",
+                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
                 "(604) 854-4397",
                 "julieallow@gmail.com",
                 "",
@@ -293,7 +257,7 @@ public class TestContactList {
                 "The hospital",
                 Contact.Category.OTHER);
         testContactList.addContact("",
-                "56 Singer Crescent, Canmore, AB, R3E 8I4",
+                "56 Singer Crescent, Canmore AB, R3E 8I4",
                 "(403) 223-3421",
                 "hair@thehairplace.com",
                 "",
@@ -301,7 +265,7 @@ public class TestContactList {
                 "",
                 Contact.Category.OTHER);
         testContactList.addContact("Pete Hamilton",
-                "21 Throllalach Way, Vancouver, BC, N2D 7H1",
+                "21 Throllalach Way, Vancouver BC, N2D 7H1",
                 "(403) 893-2343",
                 "peteham@hotmail.com",
                 "July 7, 1970",
@@ -309,7 +273,7 @@ public class TestContactList {
                 "",
                 Contact.Category.FAMILY);
         testContactList.addContact("Bob Li",
-                "1345 Blankar Terrace, Edmonton, AB, H7T 9P4",
+                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
                 "(403) 124-6784",
                 "bobli@gmail.com",
                 "November 16, 1999",
@@ -322,16 +286,9 @@ public class TestContactList {
 
     @Test
     public void testContactsOfCategoryToStringReturnEmptyString() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         testContactList.addContact("Bob Li",
-                "1345 Blankar Terrace, Edmonton, AB, H7T 9P4",
+                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
                 "(403) 124-6784",
                 "bobli@gmail.com",
                 "November 16, 1999",
@@ -343,16 +300,9 @@ public class TestContactList {
 
     @Test
     public void testContactsOfCategoryToStringFindOnceInstance() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         testContactList.addContact("Bob Li",
-                "1345 Blankar Terrace, Edmonton, AB, H7T 9P4",
+                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
                 "(403) 124-6784",
                 "bobli@gmail.com",
                 "November 16, 1999",
@@ -360,7 +310,7 @@ public class TestContactList {
                 "Business conference",
                 Contact.Category.WORK);
         testContactList.addContact("Julie Allo",
-                "4 Ruffert Street, Kelowna, BC, A5T 2Y6",
+                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
                 "(604) 854-4397",
                 "julieallow@gmail.com",
                 "",
@@ -373,16 +323,9 @@ public class TestContactList {
 
     @Test
     public void testContactsOfCategoryToStringFindTwoInstances() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
+        testContactListAddtestContact1();
         testContactList.addContact("Bob Li",
-                "1345 Blankar Terrace, Edmonton, AB, H7T 9P4",
+                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
                 "(403) 124-6784",
                 "bobli@gmail.com",
                 "November 16, 1999",
@@ -390,7 +333,7 @@ public class TestContactList {
                 "Business conference",
                 Contact.Category.WORK);
         testContactList.addContact("Julie Allo",
-                "4 Ruffert Street, Kelowna, BC, A5T 2Y6",
+                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
                 "(604) 854-4397",
                 "julieallow@gmail.com",
                 "",
@@ -398,7 +341,7 @@ public class TestContactList {
                 "The hospital",
                 Contact.Category.OTHER);
         testContactList.addContact("",
-                "56 Singer Crescent, Canmore, AB, R3E 8I4",
+                "56 Singer Crescent, Canmore AB, R3E 8I4",
                 "(403) 223-3421",
                 "hair@thehairplace.com",
                 "",
@@ -411,6 +354,19 @@ public class TestContactList {
     }
 
     // TESTING HELPER METHOD(S) & TEST(S)
+
+    // MODIFIES: this, testContactList
+    // EFFECTS: adds testContact1 to testContactList
+    private void testContactListAddtestContact1() {
+        testContactList.addContact("Molly Brown",
+                "178 Turner Road, Vancouver BC, V8L 9E2",
+                "(604) 902-3789",
+                "mollybrown@gmail.com",
+                "January 9, 2000",
+                "July 21, 2022",
+                "Walter Gage",
+                Contact.Category.FRIEND);
+    }
 
     // EFFECTS: return true iff the contents of all the fields of both Contacts are equal
     private boolean contactFieldsEqual(Contact contactA, Contact contactB) {
@@ -428,7 +384,7 @@ public class TestContactList {
     public void testcontactFieldsEqualReturnTrue() {
         Contact contactFieldsEqualTestContact1 = new Contact(
                 "Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
+                "178 Turner Road, Vancouver BC, V8L 9E2",
                 "(604) 902-3789",
                 "mollybrown@gmail.com",
                 "January 9, 2000",
@@ -442,7 +398,7 @@ public class TestContactList {
     public void testcontactFieldsEqualReturnFalse() {
         Contact contactFieldsEqualTestContact1 = new Contact(
                 "Molly Brown",
-                "178 Turner Road, Vancouver, BC, V8L 9E2",
+                "178 Turner Road, Vancouver BC, V8L 9E2",
                 "(604) 902-3789",
                 "mollybrown@gmail.com",
                 "January 9, 2000",
