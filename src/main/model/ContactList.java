@@ -30,26 +30,6 @@ public class ContactList {
         listOfContacts.removeIf(c -> (Objects.equals(c.getFullName(), fullName)));
     }
 
-    // EFFECTS: returns all Contacts in listOfContacts as a String, ordered by category: FAMILY->FRIEND->WORK->OTHER,
-    // "" if none
-    public String listOfContactsToString() {
-        return  contactsOfCategoryToString(Contact.Category.FAMILY)
-                + contactsOfCategoryToString(Contact.Category.FRIEND)
-                + contactsOfCategoryToString(Contact.Category.WORK)
-                + contactsOfCategoryToString(Contact.Category.OTHER);
-    }
-
-    // EFFECTS: returns all Contacts of Category category in listOfContacts as a String, "" if none
-    public String contactsOfCategoryToString(Contact.Category category) {
-        StringBuilder acc = new StringBuilder();
-        for (Contact c : listOfContacts) {
-            if (Objects.equals(c.getCategory(), category)) {
-                acc.append("\n").append(c.contactToString());
-            }
-        }
-        return acc.toString();
-    } //TODO investigate UI-relatedness
-
     public List<Contact> getListOfContacts() {
         return listOfContacts;
     }

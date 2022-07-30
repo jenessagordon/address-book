@@ -140,7 +140,19 @@ public class AddressBook {
         return stringToCategory(input.next());
     }
 
-    // ^ makes method take fewer lines and makes it easier to change the functionality of your program.
+    // REQUIRES: stringCategoryInput is one of: "family", "friend", "work", or "other"
+    // EFFECTS: returns Contact.Category corresponding to stringCategoryInput
+    private Contact.Category stringToCategory(String stringCategoryInput) {
+        if (Objects.equals(stringCategoryInput, "family")) {
+            return Contact.Category.FAMILY;
+        } else if (Objects.equals(stringCategoryInput, "friend")) {
+            return Contact.Category.FRIEND;
+        } else if (Objects.equals(stringCategoryInput, "work")) {
+            return Contact.Category.WORK;
+        } else {
+            return Contact.Category.OTHER;
+        }
+    }
 
     // REQUIRES: user enters a string that matches the fullName of a Contact in listOfContacts
     // MODIFIES: this
@@ -155,20 +167,41 @@ public class AddressBook {
     // EFFECTS: prints list of all contacts, ordered by category; prints "\n" if contactList's listOfContacts is empty
     private void printAllContacts() {
         System.out.println("YOUR CONTACT LIST:");
-        System.out.println(contactList.listOfContactsToString());
+        System.out.println(listOfContactsToString());
     }
 
-    // REQUIRES: stringCategoryInput is one of: "family", "friend", "work", or "other"
-    // EFFECTS: returns Contact.Category corresponding to stringCategoryInput
-    private Contact.Category stringToCategory(String stringCategoryInput) {
-        if (Objects.equals(stringCategoryInput, "family")) {
-            return Contact.Category.FAMILY;
-        } else if (Objects.equals(stringCategoryInput, "friend")) {
-            return Contact.Category.FRIEND;
-        } else if (Objects.equals(stringCategoryInput, "work")) {
-            return Contact.Category.WORK;
-        } else {
-            return Contact.Category.OTHER;
+    // EFFECTS: returns Contacts in contactList's listOfContacts as a String ordered by category:
+    // FAMILY->FRIEND->WORK->OTHER, "" if none
+    public String listOfContactsToString() {
+        return  contactsOfCategoryToString(Contact.Category.FAMILY)
+                + contactsOfCategoryToString(Contact.Category.FRIEND)
+                + contactsOfCategoryToString(Contact.Category.WORK)
+                + contactsOfCategoryToString(Contact.Category.OTHER);
+    }
+
+    // EFFECTS: returns all Contacts of Category category in contactList's listOfContacts as a String, "" if none
+    public String contactsOfCategoryToString(Contact.Category category) {
+        StringBuilder acc = new StringBuilder();
+        for (Contact c : contactList.getListOfContacts()) {
+            if (Objects.equals(c.getCategory(), category)) {
+                acc.append("\n").append(contactToString(c));
+            }
         }
+        return acc.toString();
+    }
+
+    // EFFECTS: returns c as a String of the form “Full name: " + c.getFullName() + “\n" +
+    // “Address: " + c.getAddress() + “\n" + … + “Category: " + c.getCategory() + "\n" +
+    // “-------------------"
+    public String contactToString(Contact c) {
+        return "Full name: " + c.getFullName() + "\n"
+                + "Address: " + c.getAddress() + "\n"
+                + "Phone number: " + c.getPhoneNum() + "\n"
+                + "Email: " + c.getEmail() + "\n"
+                + "Birthday: " + c.getBirthday() + "\n"
+                + "Date added: " + c.getDateAdded() + "\n"
+                + "Location met: " + c.getLocationMet() + "\n"
+                + "Category: " + c.getCategory() + "\n"
+                + "-------------------";
     }
 }
