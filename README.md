@@ -31,3 +31,6 @@ want to implement.
 - As a user, I want to be able to delete a contact from my address book.
 - As a user, I want to be able to view a list of all of my contacts.
 - As a user, I want to be able to separate my contacts into friends, family, work contacts, and other contacts.
+- As a user, I want to be able to save my entire address book to a file.
+- As a user, I want to be able to load my address book from the file and resume exactly where I left off at 
+some earlier time.
