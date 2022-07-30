@@ -76,28 +76,71 @@ public class AddressBook {
     // MODIFIES: this
     // EFFECTS: adds Contact to contactList using input from user
     private void addContact() {
-        System.out.println("Enter the full name of the contact you wish to add:");
-        String fullNameInput = input.next();
-        System.out.println("Enter the address:");
-        String addressInput = input.next();
-        System.out.println("Enter the phone number:");
-        String phoneNumInput = input.next();
-        System.out.println("Enter the email:");
-        String emailInput = input.next();
-        System.out.println("Enter the birthday:");
-        String birthdayInput = input.next();
-        System.out.println("Enter today's date:");
-        String dateAddedInput = input.next();
-        System.out.println("Enter the name of the location where you met them:");
-        String locationMetInput = input.next();
-        System.out.println("Enter a category that is one of 'family', 'friend', 'work', or 'other':");
-        Contact.Category categoryInput = stringToCategory(input.next());
+        String fullNameInput = getFullNameInput();
+        String addressInput = getAddressInput();
+        String phoneNumInput = getPhoneNumInput();
+        String emailInput = getEmailInput();
+        String birthdayInput = getBirthdayInput();
+        String dateAddedInput = getDateAddedInput();
+        String locationMetInput = getLocationMetInput();
+        Contact.Category categoryInput = getCategoryInput();
+
         contactList.addContact(fullNameInput, addressInput,
                 phoneNumInput, emailInput,
                 birthdayInput, dateAddedInput,
                 locationMetInput, categoryInput);
         System.out.println("Contact added successfully!");
     }
+
+    // EFFECTS: gets fullName input that the user wants to add to contactList
+    private String getFullNameInput() {
+        System.out.println("Enter the full name of the contact you wish to add:");
+        return input.next();
+    }
+
+    // EFFECTS: gets address input that the user wants to add to contactList
+    private String getAddressInput() {
+        System.out.println("Enter the address:");
+        return input.next();
+    }
+
+    // EFFECTS: gets phoneNum input that the user wants to add to contactList
+    private String getPhoneNumInput() {
+        System.out.println("Enter the phone number:");
+        return input.next();
+    }
+
+    // EFFECTS: gets email input that the user wants to add to contactList
+    private String getEmailInput() {
+        System.out.println("Enter the email:");
+        return input.next();
+    }
+
+    // EFFECTS: gets birthday input that the user wants to add to contactList
+    private String getBirthdayInput() {
+        System.out.println("Enter the birthday:");
+        return input.next();
+    }
+
+    // EFFECTS: gets dateAdded input that the user wants to add to contactList
+    private String getDateAddedInput() {
+        System.out.println("Enter today's date:");
+        return input.next();
+    }
+
+    // EFFECTS: gets locationMet input that the user wants to add to contactList
+    private String getLocationMetInput() {
+        System.out.println("Enter the name of the location where you met them:");
+        return input.next();
+    }
+
+    // EFFECTS: gets category input that the user wants to add to contactList
+    private Contact.Category getCategoryInput() {
+        System.out.println("Enter a category that is one of 'family', 'friend', 'work', or 'other':");
+        return stringToCategory(input.next());
+    }
+
+    // ^ makes method take fewer lines and makes it easier to change the functionality of your program.
 
     // REQUIRES: user enters a string that matches the fullName of a Contact in listOfContacts
     // MODIFIES: this

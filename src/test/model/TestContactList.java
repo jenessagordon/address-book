@@ -14,7 +14,7 @@ public class TestContactList {
     private Contact testContact3;
     private Contact testContact4;
     private Contact testContact5;
-    private ArrayList<Contact> testListOfContacts = new ArrayList<>();
+    private ArrayList<Contact> testListOfContacts;
     private String testListOfContactsToStringResult;
     private String testContact3ContactToStringResult;
     private String testContact4ContactToStringResult;
@@ -67,6 +67,7 @@ public class TestContactList {
                 "October 16, 2007",
                 "",
                 Contact.Category.FAMILY);
+        testListOfContacts = new ArrayList<>();
         testListOfContactsToStringResult = "\n" + "Full name: " + "Pete Hamilton" + "\n"
                 + "Address: " + "21 Throllalach Way, Vancouver BC, N2D 7H1" + "\n"
                 + "Phone number: " + "(403) 893-2343" + "\n"
