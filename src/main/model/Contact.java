@@ -6,14 +6,14 @@ import java.util.Objects;
 // date the user added the contact to the contact list, where the user met the contact, and what Category the contact
 // is in. Category represents the type of the contact, and is one of: FAMILY, FRIEND, WORK, or OTHER.
 public class Contact {
-    String fullName;
-    String address;
-    String phoneNum;
-    String email;
-    String birthday;
-    String dateAdded;
-    String locationMet;
-    Category category;
+    private String fullName;
+    private String address;
+    private String phoneNum;
+    private String email;
+    private String birthday;
+    private String dateAdded;
+    private String locationMet;
+    private Category category;
 
     public enum Category {
         FAMILY, FRIEND, WORK, OTHER
@@ -51,7 +51,7 @@ public class Contact {
                 + "Location met: " + locationMet + "\n"
                 + "Category: " + category + "\n"
                 + "-------------------";
-    }
+    } //TODO investigate UI-relatedness
 
     public String getFullName() {
         return fullName;

@@ -6,7 +6,7 @@ import java.util.Objects;
 
 // Represents an arbitrarily-sized list of Contacts. INVARIANT: fullName of all contacts is unique.
 public class ContactList {
-    List<Contact> listOfContacts;
+    private List<Contact> listOfContacts;
 
     // EFFECTS: creates a ContactList whose listOfContacts is an empty ArrayList
     public ContactList() {
@@ -48,7 +48,7 @@ public class ContactList {
             }
         }
         return acc.toString();
-    }
+    } //TODO investigate UI-relatedness
 
     public List<Contact> getListOfContacts() {
         return listOfContacts;
