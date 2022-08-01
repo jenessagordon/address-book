@@ -2,7 +2,11 @@ package ui;
 
 import model.Contact;
 import model.ContactList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -10,8 +14,11 @@ import java.util.Scanner;
 // console (ordered by Category). Code in this class inspired by/copied from
 // https://github.students.cs.ubc.ca/CPSC210/TellerApp
 public class AddressBook {
+    private static final String JSON_STORE = "./data/contactList.json";
     private ContactList contactList;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the address book application
     public AddressBook() {
@@ -50,6 +57,10 @@ public class AddressBook {
             removeContact();
         } else if (command.equals("view")) {
             printAllContacts();
+        } else if (command.equals("save")) {
+            saveContactList();
+        } else if (command.equals("load")) {
+            loadContactList();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -61,6 +72,8 @@ public class AddressBook {
         contactList = new ContactList();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: displays menu of options to user
@@ -69,6 +82,8 @@ public class AddressBook {
         System.out.println("\tadd -> add contact");
         System.out.println("\tdelete -> delete contact");
         System.out.println("\tview -> view contact");
+        System.out.println("\tsave -> save contact list to file");
+        System.out.println("\tload -> load contact list from file");
         System.out.println("\tquit -> quit");
     }
 
@@ -202,5 +217,28 @@ public class AddressBook {
                 + "Location met: " + c.getLocationMet() + "\n"
                 + "Category: " + c.getCategory() + "\n"
                 + "-------------------";
+    }
+
+    // EFFECTS: saves contactList to file
+    private void saveContactList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(contactList);
+            jsonWriter.close();
+            System.out.println("Saved contact list to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: assigns the ContactList read from file to contactList
+    private void loadContactList() {
+        try {
+            contactList = jsonReader.read();
+            System.out.println("Loaded contact list from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }
