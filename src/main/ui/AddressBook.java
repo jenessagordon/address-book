@@ -1,7 +1,5 @@
 package ui;
 
-// Code in this class inspired by/copied from https://github.students.cs.ubc.ca/CPSC210/TellerApp
-
 import model.Contact;
 import model.ContactList;
 
@@ -9,7 +7,8 @@ import java.util.Objects;
 import java.util.Scanner;
 
 // Address book application that lets user add Contacts, remove Contacts, and print all of their contacts to the
-// console (ordered by Category)
+// console (ordered by Category). Code in this class inspired by/copied from
+// https://github.students.cs.ubc.ca/CPSC210/TellerApp
 public class AddressBook {
     private ContactList contactList;
     private Scanner input;
