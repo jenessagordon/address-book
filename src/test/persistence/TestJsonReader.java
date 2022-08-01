@@ -2,6 +2,7 @@ package persistence;
 
 import model.Contact;
 import model.ContactList;
+import model.TestModelAndPersistence;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestJsonReader extends TestJson {
+public class TestJsonReader extends TestModelAndPersistence {
 
     @Test
     void testReaderNonExistentFile() {

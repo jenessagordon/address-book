@@ -6,32 +6,22 @@ import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestContactList {
+public class TestContactList extends TestModelAndPersistence {
     private ContactList testContactList;
-    private Contact testContact1;
-    private Contact testContact2;
+//    private Contact testContact3;
 
     @BeforeEach
     public void setUp() {
         testContactList = new ContactList();
-        testContact1 = new Contact(
-                "Molly Brown",
-                "178 Turner Road, Vancouver BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
-        testContact2 = new Contact(
-                "Bob Li",
-                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
-                "(403) 124-6784",
-                "bobli@gmail.com",
-                "November 16, 1999",
-                "May 1, 2022",
-                "Business conference",
-                Contact.Category.WORK);
+//        testContact3 = new Contact(
+//                "Julie Allo",
+//                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
+//                "(604) 854-4397",
+//                "julieallow@gmail.com",
+//                "",
+//                "June 3, 2021",
+//                "The hospital",
+//                Contact.Category.OTHER);
     }
 
     @Test
@@ -41,7 +31,7 @@ public class TestContactList {
 
     @Test
     public void testAddContactSingle() {
-        testContactListAddtestContact1();
+        addTestContact1ToContactList(testContactList);
         assertEquals(1, testContactList.getListOfContacts().size());
         Contact contact1 = testContactList.getListOfContacts().get(0);
         assertTrue(contactFieldsEqual(testContact1, contact1));
@@ -49,8 +39,8 @@ public class TestContactList {
 
     @Test
     public void testAddContactCumulative() {
-        testContactListAddtestContact1();
-        testContactListAddtestContact2();
+        addTestContact1ToContactList(testContactList);
+        addTestContact2ToContactList(testContactList);
         assertEquals(2, testContactList.getListOfContacts().size());
         Contact contact1 = testContactList.getListOfContacts().get(0);
         assertTrue(contactFieldsEqual(testContact1, contact1));
@@ -61,7 +51,7 @@ public class TestContactList {
     // removes a single Contact from a listOfContacts of size 1
     @Test
     public void testRemoveContactSingle() {
-        testContactListAddtestContact1();
+        addTestContact1ToContactList(testContactList);
         testContactList.removeContact("Molly Brown");
         assertEquals(0, testContactList.getListOfContacts().size());
     }
@@ -69,9 +59,9 @@ public class TestContactList {
     // removes two Contacts from a listOfContacts of size 3
     @Test
     public void testRemoveContactCumulative() {
-        testContactListAddtestContact1();
-        testContactListAddtestContact2();
-        testContactListAddtestContact3();
+        addTestContact1ToContactList(testContactList);
+        addTestContact2ToContactList(testContactList);
+        addTestContact3ToContactList(testContactList);
         testContactList.removeContact("Bob Li");
         testContactList.removeContact("Julie Allo");
         assertEquals(1, testContactList.getListOfContacts().size());
@@ -80,45 +70,6 @@ public class TestContactList {
     }
 
     // TESTING HELPER METHOD(S) & TEST(S)
-
-    // MODIFIES: this, testContactList
-    // EFFECTS: adds testContact1 to testContactList
-    private void testContactListAddtestContact1() {
-        testContactList.addContact("Molly Brown",
-                "178 Turner Road, Vancouver BC, V8L 9E2",
-                "(604) 902-3789",
-                "mollybrown@gmail.com",
-                "January 9, 2000",
-                "July 21, 2022",
-                "Walter Gage",
-                Contact.Category.FRIEND);
-    }
-
-    // MODIFIES: this, testContactList
-    // EFFECTS: adds testContact2 to testContactList
-    private void testContactListAddtestContact2() {
-        testContactList.addContact("Bob Li",
-                "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
-                "(403) 124-6784",
-                "bobli@gmail.com",
-                "November 16, 1999",
-                "May 1, 2022",
-                "Business conference",
-                Contact.Category.WORK);
-    }
-
-    // MODIFIES: this, testContactList
-    // EFFECTS: adds testContact3 to testContactList
-    private void testContactListAddtestContact3() {
-        testContactList.addContact("Julie Allo",
-                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
-                "(604) 854-4397",
-                "julieallow@gmail.com",
-                "",
-                "June 3, 2021",
-                "The hospital",
-                Contact.Category.OTHER);
-    }
 
     // EFFECTS: return true iff the contents of all the fields of both Contacts are equal
     private boolean contactFieldsEqual(Contact contactA, Contact contactB) {
