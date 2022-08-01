@@ -21,7 +21,7 @@ public class AddressBook {
     private JsonReader jsonReader;
 
     // EFFECTS: runs the address book application
-    public AddressBook() {
+    public AddressBook() throws FileNotFoundException {
         runAddressBook();
     }
 
