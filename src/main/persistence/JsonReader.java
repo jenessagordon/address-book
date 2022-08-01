@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+// Represents a reader that reads ContactList from JSON data stored in file
 public class JsonReader {
     private String source;
 
