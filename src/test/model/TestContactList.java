@@ -8,20 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestContactList extends TestModelAndPersistence {
     private ContactList testContactList;
-//    private Contact testContact3;
 
     @BeforeEach
     public void setUp() {
         testContactList = new ContactList();
-//        testContact3 = new Contact(
-//                "Julie Allo",
-//                "4 Ruffert Street, Kelowna BC, A5T 2Y6",
-//                "(604) 854-4397",
-//                "julieallow@gmail.com",
-//                "",
-//                "June 3, 2021",
-//                "The hospital",
-//                Contact.Category.OTHER);
     }
 
     @Test

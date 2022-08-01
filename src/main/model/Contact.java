@@ -5,7 +5,9 @@ import persistence.Writeable;
 
 // Represents a contact containing the contact’s full name, address, phone number, email, and birthday, along with the
 // date the user added the contact to the contact list, where the user met the contact, and what Category the contact
-// is in. Category represents the type of the contact, and is one of: FAMILY, FRIEND, WORK, or OTHER.
+// is in. Category represents the type of the contact, and is one of: FAMILY, FRIEND, WORK, or OTHER. Code in this
+// class inspired by/copied from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo/blob/
+// d31979d8a993d63c3a8c13c8add7f9d1753777b6/src/main/model/Thingy.java
 public class Contact implements Writeable {
     private String fullName;
     private String address;

@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-// Represents an arbitrarily-sized list of Contacts. INVARIANT: fullName of all contacts is unique.
+// Represents an arbitrarily-sized list of Contacts. INVARIANT: fullName of all contacts is unique. Code in this class
+// inspired by/copied from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo/blob/
+// d31979d8a993d63c3a8c13c8add7f9d1753777b6/src/main/model/WorkRoom.java
 public class ContactList implements Writeable {
     private List<Contact> listOfContacts;
 

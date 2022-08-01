@@ -1,0 +1,22 @@
+{"listOfContacts": [
+    {
+        "birthday": "January 9, 2000",
+        "address": "178 Turner Road, Vancouver BC, V8L 9E2",
+        "fullName": "Molly Brown",
+        "phoneNum": "(604) 902-3789",
+        "locationMet": "Walter Gage",
+        "category": "FRIEND",
+        "email": "mollybrown@gmail.com",
+        "dateAdded": "July 21, 2022"
+    },
+    {
+        "birthday": "November 16, 1999",
+        "address": "1345 Blankar Terrace, Edmonton AB, H7T 9P4",
+        "fullName": "Bob Li",
+        "phoneNum": "(403) 124-6784",
+        "locationMet": "Business conference",
+        "category": "WORK",
+        "email": "bobli@gmail.com",
+        "dateAdded": "May 1, 2022"
+    }
+]}

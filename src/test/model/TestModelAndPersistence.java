@@ -2,6 +2,8 @@ package model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// Code in this class inspired by/copied from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo/blob/
+// d31979d8a993d63c3a8c13c8add7f9d1753777b6/src/test/persistence/JsonTest.java
 public class TestModelAndPersistence {
     public Contact testContact1 = new Contact(
             "Molly Brown",
@@ -74,12 +76,12 @@ public class TestModelAndPersistence {
     protected void checkContact(String fullName, String address, String phoneNum, String email, String birthday,
                                 String dateAdded, String locationMet, Contact.Category category, Contact contact) {
         assertEquals(fullName, contact.getFullName());
-        assertEquals(fullName, contact.getFullName());
-        assertEquals(fullName, contact.getFullName());
-        assertEquals(fullName, contact.getFullName());
-        assertEquals(fullName, contact.getFullName());
-        assertEquals(fullName, contact.getFullName());
-        assertEquals(fullName, contact.getFullName());
+        assertEquals(address, contact.getAddress());
+        assertEquals(phoneNum, contact.getPhoneNum());
+        assertEquals(email, contact.getEmail());
+        assertEquals(birthday, contact.getBirthday());
+        assertEquals(dateAdded, contact.getDateAdded());
+        assertEquals(locationMet, contact.getLocationMet());
         assertEquals(category, contact.getCategory());
     }
 }
