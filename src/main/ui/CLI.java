@@ -1,28 +1,18 @@
 package ui;
 
 import model.Contact;
-import model.ContactList;
-import persistence.JsonReader;
-import persistence.JsonWriter;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Objects;
 import java.util.Scanner;
 
 // Address book application that lets user add Contacts, remove Contacts, and print all of their contacts to the
 // console (ordered by Category). Code in this class inspired by/copied from
 // https://github.students.cs.ubc.ca/CPSC210/TellerApp and https://github.students.cs.ubc.ca/CPSC210/
 // JsonSerializationDemo/blob/d31979d8a993d63c3a8c13c8add7f9d1753777b6/src/main/ui/WorkRoomApp.java
-public class AddressBook {
-    private static final String JSON_STORE = "./data/contactList.json";
-    private ContactList contactList;
+public class CLI extends UI {
     private Scanner input;
-    private JsonWriter jsonWriter;
-    private JsonReader jsonReader;
 
     // EFFECTS: runs the address book application
-    public AddressBook() throws FileNotFoundException {
+    public CLI() {
         runAddressBook();
     }
 
@@ -70,11 +60,8 @@ public class AddressBook {
     // MODIFIES: this
     // EFFECTS: initializes contactList field, initializes input, and sets delimiter
     private void init() {
-        contactList = new ContactList();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
-        jsonWriter = new JsonWriter(JSON_STORE);
-        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: displays menu of options to user
@@ -155,20 +142,6 @@ public class AddressBook {
         return stringToCategory(input.next());
     }
 
-    // REQUIRES: stringCategoryInput is one of: "family", "friend", "work", or "other"
-    // EFFECTS: returns Contact.Category corresponding to stringCategoryInput
-    private Contact.Category stringToCategory(String stringCategoryInput) {
-        if (Objects.equals(stringCategoryInput, "family")) {
-            return Contact.Category.FAMILY;
-        } else if (Objects.equals(stringCategoryInput, "friend")) {
-            return Contact.Category.FRIEND;
-        } else if (Objects.equals(stringCategoryInput, "work")) {
-            return Contact.Category.WORK;
-        } else {
-            return Contact.Category.OTHER;
-        }
-    }
-
     // REQUIRES: user enters a string that matches the fullName of a Contact in listOfContacts
     // MODIFIES: this
     // EFFECTS: removes Contact with name specified by user from contactList's listOfContacts
@@ -183,63 +156,5 @@ public class AddressBook {
     private void printAllContacts() {
         System.out.println("YOUR CONTACT LIST:");
         System.out.println(listOfContactsToString());
-    }
-
-    // EFFECTS: returns Contacts in contactList's listOfContacts as a String ordered by category:
-    // FAMILY->FRIEND->WORK->OTHER, "" if none
-    public String listOfContactsToString() {
-        return  contactsOfCategoryToString(Contact.Category.FAMILY)
-                + contactsOfCategoryToString(Contact.Category.FRIEND)
-                + contactsOfCategoryToString(Contact.Category.WORK)
-                + contactsOfCategoryToString(Contact.Category.OTHER);
-    }
-
-    // EFFECTS: returns all Contacts of Category category in contactList's listOfContacts as a String, "" if none
-    public String contactsOfCategoryToString(Contact.Category category) {
-        StringBuilder acc = new StringBuilder();
-        for (Contact c : contactList.getListOfContacts()) {
-            if (Objects.equals(c.getCategory(), category)) {
-                acc.append("\n").append(contactToString(c));
-            }
-        }
-        return acc.toString();
-    }
-
-    // EFFECTS: returns c as a String of the form “Full name: " + c.getFullName() + “\n" +
-    // “Address: " + c.getAddress() + “\n" + … + “Category: " + c.getCategory() + "\n" +
-    // “-------------------"
-    public String contactToString(Contact c) {
-        return "Full name: " + c.getFullName() + "\n"
-                + "Address: " + c.getAddress() + "\n"
-                + "Phone number: " + c.getPhoneNum() + "\n"
-                + "Email: " + c.getEmail() + "\n"
-                + "Birthday: " + c.getBirthday() + "\n"
-                + "Date added: " + c.getDateAdded() + "\n"
-                + "Location met: " + c.getLocationMet() + "\n"
-                + "Category: " + c.getCategory() + "\n"
-                + "-------------------";
-    }
-
-    // EFFECTS: saves contactList to file
-    private void saveContactList() {
-        try {
-            jsonWriter.open();
-            jsonWriter.write(contactList);
-            jsonWriter.close();
-            System.out.println("Saved contact list to " + JSON_STORE);
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to write to file: " + JSON_STORE);
-        }
-    }
-
-    // MODIFIES: this
-    // EFFECTS: assigns the ContactList read from file to contactList
-    private void loadContactList() {
-        try {
-            contactList = jsonReader.read();
-            System.out.println("Loaded contact list from " + JSON_STORE);
-        } catch (IOException e) {
-            System.out.println("Unable to read from file: " + JSON_STORE);
-        }
     }
 }
