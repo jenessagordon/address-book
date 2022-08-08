@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+// adding this comment to test Git
 public class GUI extends UI implements ActionListener {
     private JTextArea viewPanelTextArea;
     private JFrame addressBookWindow;
