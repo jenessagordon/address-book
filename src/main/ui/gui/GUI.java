@@ -58,6 +58,8 @@ public class GUI extends UI implements ActionListener {
         makeAddressBookWindow();
     }
 
+    // MODIFIES: this
+    // EFFECTS: makes the left panel for adding a new contact, deleting a contact, loading & saving address book
     private void makeLeftPanel() {
         makeAddContactPanel();
         makeDeleteContactLoadSavePanel();
@@ -67,12 +69,16 @@ public class GUI extends UI implements ActionListener {
         leftPanel.add(deleteContactLoadSavePanel);
     }
 
+    // MODIFIES: this
+    // EFFECTS: makes panel for adding a new contact
     private void makeAddContactPanel() {
         makeAddContactComponents();
         addContactPanel = new JPanel(new GridLayout(10, 2));
         addAddContactPanelComponents();
     }
 
+    // MODIFIES: this
+    // EFFECTS: makes components to be added to addContactPanel
     private void makeAddContactComponents() {
         addContactLabel = new JLabel("ADD CONTACT");
         addContactEmptyLabel = new JLabel();
@@ -97,6 +103,8 @@ public class GUI extends UI implements ActionListener {
         addContactButtonLabel = new JLabel();
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds components to addContactPanel
     private void addAddContactPanelComponents() {
         addContactPanel.add(addContactLabel);
         addContactPanel.add(addContactEmptyLabel);
@@ -120,6 +128,8 @@ public class GUI extends UI implements ActionListener {
         addContactPanel.add(addContactButton);
     }
 
+    // MODIFIES: this
+    // EFFECTS: makes panel for deleting a contact, loading & saving address book
     private void makeDeleteContactLoadSavePanel() {
         deleteContactLabel = new JLabel("DELETE CONTACT");
         fullNameDeleteLabel = new JLabel("Delete the contact with the following full name: (press enter)");
@@ -141,6 +151,8 @@ public class GUI extends UI implements ActionListener {
         addDeleteContactLoadSavePanelComponents();
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds components for loading & saving address book to deleteContactLoadSavePanel
     private void addDeleteContactLoadSavePanelComponents() {
         deleteContactLoadSavePanel.add(deleteContactLabel);
         deleteContactLoadSavePanel.add(fullNameDeleteLabel);
@@ -154,7 +166,8 @@ public class GUI extends UI implements ActionListener {
         deleteContactLoadSavePanel.add(saveButton);
     }
 
-
+    // MODIFIES: this
+    // EFFECTS: makes the right panel for viewing all contacts in contactList
     private void makeRightPanel() {
         viewPanelTextArea = new JTextArea();
         viewPanelTextArea.setEditable(false);
@@ -168,12 +181,15 @@ public class GUI extends UI implements ActionListener {
         rightPanel.add(viewScrollPane);
     }
 
+    // MODIFIES: this
     // EFFECTS: fills viewPanel with text representing what is currently in contactList
     private void updateViewPanel() {
         String viewPanelTextAreaText = "YOUR CONTACT LIST:" + "\n" + listOfContactsToString();
         viewPanelTextArea.setText(viewPanelTextAreaText);
     }
 
+    // MODIFIES: this
+    // EFFECTS: makes window within application is run
     private void makeAddressBookWindow() {
         addressBookWindow = new JFrame("Address Book");
         addressBookWindow.setLayout(new GridLayout(1, 2));
