@@ -1,1 +1,10 @@
-{"listOfContacts": []}
+{"listOfContacts": [{
+    "birthday": "a",
+    "address": "a",
+    "fullName": "a",
+    "phoneNum": "a",
+    "locationMet": "a",
+    "category": "OTHER",
+    "email": "a",
+    "dateAdded": "a"
+}]}
