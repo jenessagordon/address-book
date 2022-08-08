@@ -26,7 +26,7 @@ project idea that is simple and easily modifiable. I have this expectation becau
 enable me to focus more on the programming concepts that I am learning and less on the details of the various features I 
 want to implement.
 
-## User Stories
+# User Stories
 - As a user, I want to be able to add one or more new contact(s) to my address book.
 - As a user, I want to be able to delete a contact from my address book.
 - As a user, I want to be able to view a list of all of my contacts.
@@ -34,3 +34,23 @@ want to implement.
 - As a user, I want to be able to save my entire address book to a file.
 - As a user, I want to be able to load my address book from the file and resume exactly where I left off at 
 some earlier time.
+
+# Instructions for Grader
+
+- You can generate the first required event by:
+  - adding the desired information to the text fields labelled "Full name:", "Address:", "Phone number:", "Email:", 
+  "Birthday:", "Today's date:", "Location met:", and "Category that is one of 'family', 'friend', 'work', or 'other':", 
+  then
+  - clicking the button labelled "Add Contact".
+- You can generate the second required event by:
+  - entering the exact full name of the contact you wish to remove into the text field labelled "Delete the contact 
+  with the following full name: (press enter)", then
+  - pressing the Enter key on the keyboard.
+- You can locate my visual component by clicking the button labelled "Save Address Book". A dialog will open which 
+displays my visual component. You can close this dialog by clicking the button labelled "OK".
+- You can save the state of my application by clicking the button labelled "Save Address Book".
+- You can reload the state of my application by:
+  - running the application from the GUI class, then
+  - clicking the button labelled "Load Address Book". Note that in order to notice this button's behaviour, the loaded 
+  address book needs to be different than the address book already displayed in the view panel on the right side of 
+  the window.
