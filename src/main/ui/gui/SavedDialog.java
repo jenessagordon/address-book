@@ -5,8 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Represents a dialog that says the address book has been saved
 public class SavedDialog extends JDialog implements ActionListener {
 
+    // EFFECTS: creates a dialog that tells the user their address book has been saved
     public SavedDialog(JFrame parent) {
         super(parent);
 
@@ -27,6 +29,7 @@ public class SavedDialog extends JDialog implements ActionListener {
         this.setVisible(true);
     }
 
+    // EFFECTS: closes 'this'
     @Override
     public void actionPerformed(ActionEvent e) {
         SavedDialog.this.dispose();

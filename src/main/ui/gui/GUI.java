@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-// adding this comment to test Git
+// Represents a GUI for an address book that allows for data persistence
 public class GUI extends UI implements ActionListener {
     private JTextArea viewPanelTextArea;
     private JFrame addressBookWindow;
@@ -24,9 +24,12 @@ public class GUI extends UI implements ActionListener {
     private JTextField categoryAddTextField;
     private JTextField fullNameDeleteTextField;
 
+    // EFFECTS: constructs the window in which the address book is displayed
     public GUI() {
         // components related to leftPanel
         // addContactPanel
+        JLabel addContactLabel = new JLabel("ADD CONTACT");
+        JLabel addContactEmptyLabel = new JLabel();
         JLabel fullNameLabel = new JLabel("Full name:");
         fullNameAddTextField = new JTextField();
         JLabel addressLabel = new JLabel("Address:");
@@ -46,9 +49,9 @@ public class GUI extends UI implements ActionListener {
         JButton addContactButton = new JButton("Add Contact");
         addContactButton.addActionListener(this);
         JLabel addContactButtonLabel = new JLabel();
-        JPanel addContactPanel = new JPanel(new GridLayout(9, 2));
-        addContactPanel.setBackground(Color.cyan);
-        //TODO ^ remove after implementation complete
+        JPanel addContactPanel = new JPanel(new GridLayout(10, 2));
+        addContactPanel.add(addContactLabel);
+        addContactPanel.add(addContactEmptyLabel);
         addContactPanel.add(fullNameLabel);
         addContactPanel.add(fullNameAddTextField);
         addContactPanel.add(addressLabel);
@@ -70,6 +73,7 @@ public class GUI extends UI implements ActionListener {
         //TODO remove addContactFieldsPanel code duplication
 
         // deleteContactPanel
+        JLabel deleteContactLabel = new JLabel("DELETE CONTACT");
         JLabel fullNameDeleteLabel = new JLabel("Delete the contact with the following full name: (press enter)");
         fullNameDeleteTextField = new JTextField();
         fullNameDeleteTextField.addKeyListener(new KeyAdapter() {
@@ -81,26 +85,27 @@ public class GUI extends UI implements ActionListener {
                 }
             }
         });
-        JPanel deleteContactPanel = new JPanel(new GridLayout(9, 2));
+        JButton loadButton = new JButton("Load Address Book");
+        JButton saveButton = new JButton("Save Address Book");
+        loadButton.addActionListener(this);
+        saveButton.addActionListener(this);
+        JPanel deleteContactPanel = new JPanel(new GridLayout(10, 2));
+        deleteContactPanel.add(deleteContactLabel);
         deleteContactPanel.add(fullNameDeleteLabel);
         deleteContactPanel.add(fullNameDeleteTextField);
+        deleteContactPanel.add(new JLabel());
+        deleteContactPanel.add(new JLabel());
+        deleteContactPanel.add(new JLabel());
+        deleteContactPanel.add(new JLabel());
+        deleteContactPanel.add(new JLabel());
+        deleteContactPanel.add(loadButton);
+        deleteContactPanel.add(saveButton);
 
         JPanel leftPanel = new JPanel(new GridLayout(2, 1));
         leftPanel.setBackground(Color.red);
         //TODO ^ remove after implementation complete
         leftPanel.add(addContactPanel);
         leftPanel.add(deleteContactPanel);
-
-        // components related to rightPanel
-        // dataPersistencePanel
-        JPanel dataPersistencePanel = new JPanel();
-        dataPersistencePanel.setLayout(new GridLayout(9, 0));
-        JButton loadButton = new JButton("Load Address Book");
-        JButton saveButton = new JButton("Save Address Book");
-        loadButton.addActionListener(this);
-        saveButton.addActionListener(this);
-        dataPersistencePanel.add(loadButton);
-        dataPersistencePanel.add(saveButton);
 
         // viewPanel
         viewPanelTextArea = new JTextArea();
@@ -160,14 +165,59 @@ public class GUI extends UI implements ActionListener {
                 "faucibus arcu a efficitur congue. Phasellus aliquet posuere dui, in gravida purus rutrum sed. Duis " +
                 "vel porttitor tellus, eu bibendum lorem. Fusce eu neque vitae lacus porta mollis. Morbi felis enim, " +
                 "tempor eget eros quis, porttitor sollicitudin felis. Proin bibendum neque quam, eget tristique metus " +
+                "dignissim vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia " +
+                "lorem. Ut id egestas lectus, feugiat aliquam nunc.\n" + "\n" + "Vestibulum id finibus ligula. Morbi " +
+                "commodo a nulla ac elementum. Ut eget feugiat libero. Phasellus at ex tortor. Sed ex nisi, " +
+                "ullamcorper in aliquet sit amet, pharetra eget metus. Suspendisse eget turpis enim. Aliquam " +
+                "ullamcorper ipsum sed enim porta varius. Proin vitae molestie nulla. Cras vehicula consectetur " +
+                "imperdiet. Mauris vel pellentesque eros, quis pulvinar ligula. Proin vitae mattis orci, vestibulum " +
+                "elementum nunc. Nam scelerisque mauris eget turpis mollis, in porta massa convallis. Fusce eu tempor " +
+                "justo.\n" + "\n" + "Aenean eget commodo arcu. Proin lorem leo, fermentum vel risus vitae, varius " +
+                "suscipit purus. Fusce mollis id risus pretium convallis. In ultricies nulla egestas dignissim " +
+                "condimentum. Proin non est vitae augue lobortis hendrerit eu in dui. Sed sit amet finibus lorem. " +
+                "Mauris est ligula, vehicula ac ligula vel, tristique venenatis urna. In id erat molestie dolor " +
+                "volutpat vehicula. Phasellus non dictum massa. Suspendisse nec metus imperdiet tellus luctus auctor " +
+                "id sit amet lacus.\n" + "\n" + "Nam molestie velit sed faucibus hendrerit. Donec in luctus urna. " +
+                "Donec quis tortor lobortis, blandit enim sit amet, pellentesque purus. Sed eleifend dignissim sapien " +
+                "id mattis. Proin non ligula in sapien ornare convallis vitae ac magna. Quisque hendrerit nibh non " +
+                "lorem suscipit semper. Mauris vel enim ipsum. Ut a eros id ipsum euismod posuere id ut elit. Fusce " +
+                "faucibus arcu a efficitur congue. Phasellus aliquet posuere dui, in gravida purus rutrum sed. Duis " +
+                "vel porttitor tellus, eu bibendum lorem. Fusce eu neque vitae lacus porta mollis. Morbi felis enim, " +
+                "tempor eget eros quis, porttitor sollicitudin felis. Proin bibendum neque quam, eget tristique metus " +
+                "dignissim vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia " +
+                "curae; Vivamus euismod eu tortor at feugiat." +
+                "hendrerit ornare a eget elit. Sed ut tortor nunc. Nam vel elementum nisi, eget egestas nisi. Morbi " +
+                "enim libero, porta vitae euismod nec, euismod et elit. Mauris at maximus leo. Duis eu iaculis " +
+                "velit. Nullam faucibus ex ut justo maximus dapibus. Fusce non ipsum vitae tortor consequat rhoncus. " +
+                "Sed nec dolor sapien. Suspendisse in ex eu ipsum interdum sodales nec vitae eros.\n" +
+                "\n" + "Nam elementum nulla orci, in sodales lacus consequat pharetra. Donec nisi leo, dictum sit " +
+                "amet eros a, placerat tempus leo. Nunc vel lacus erat. Etiam ornare ullamcorper bibendum. Nulla non " +
+                "aliquet eros. Sed sit amet facilisis magna. In magna urna, lacinia vel faucibus nec, interdum in " +
+                "lorem. Ut id egestas lectus, feugiat aliquam nunc.\n" + "\n" + "Vestibulum id finibus ligula. Morbi " +
+                "commodo a nulla ac elementum. Ut eget feugiat libero. Phasellus at ex tortor. Sed ex nisi, " +
+                "ullamcorper in aliquet sit amet, pharetra eget metus. Suspendisse eget turpis enim. Aliquam " +
+                "ullamcorper ipsum sed enim porta varius. Proin vitae molestie nulla. Cras vehicula consectetur " +
+                "imperdiet. Mauris vel pellentesque eros, quis pulvinar ligula. Proin vitae mattis orci, vestibulum " +
+                "elementum nunc. Nam scelerisque mauris eget turpis mollis, in porta massa convallis. Fusce eu tempor " +
+                "justo.\n" + "\n" + "Aenean eget commodo arcu. Proin lorem leo, fermentum vel risus vitae, varius " +
+                "suscipit purus. Fusce mollis id risus pretium convallis. In ultricies nulla egestas dignissim " +
+                "condimentum. Proin non est vitae augue lobortis hendrerit eu in dui. Sed sit amet finibus lorem. " +
+                "Mauris est ligula, vehicula ac ligula vel, tristique venenatis urna. In id erat molestie dolor " +
+                "volutpat vehicula. Phasellus non dictum massa. Suspendisse nec metus imperdiet tellus luctus auctor " +
+                "id sit amet lacus.\n" + "\n" + "Nam molestie velit sed faucibus hendrerit. Donec in luctus urna. " +
+                "Donec quis tortor lobortis, blandit enim sit amet, pellentesque purus. Sed eleifend dignissim sapien " +
+                "id mattis. Proin non ligula in sapien ornare convallis vitae ac magna. Quisque hendrerit nibh non " +
+                "lorem suscipit semper. Mauris vel enim ipsum. Ut a eros id ipsum euismod posuere id ut elit. Fusce " +
+                "faucibus arcu a efficitur congue. Phasellus aliquet posuere dui, in gravida purus rutrum sed. Duis " +
+                "vel porttitor tellus, eu bibendum lorem. Fusce eu neque vitae lacus porta mollis. Morbi felis enim, " +
+                "tempor eget eros quis, porttitor sollicitudin felis. Proin bibendum neque quam, eget tristique metus " +
                 "dignissim vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia ");
         JScrollPane viewPanel = new JScrollPane();
         viewPanel.setViewportView(viewPanelTextArea);
 
-        JPanel rightPanel = new JPanel(new GridLayout(2, 1));
+        JPanel rightPanel = new JPanel(new GridLayout(1, 1));
         rightPanel.setBackground(Color.blue);
         //TODO ^ remove after implementation complete
-        rightPanel.add(dataPersistencePanel);
         rightPanel.add(viewPanel);
 
         // addressBookWindow
@@ -180,11 +230,17 @@ public class GUI extends UI implements ActionListener {
         addressBookWindow.add(rightPanel);
     }
 
+    // EFFECTS: fills viewPanel with text representing what is currently in contactList
     private void updateViewPanel() {
         String viewPanelTextAreaText = "YOUR CONTACT LIST:" + "\n" + listOfContactsToString();
         viewPanelTextArea.setText(viewPanelTextAreaText);
     }
 
+    // MODIFIES: this
+    // EFFECTS: if addContactButton pressed, adds contact to contactList from given JTextField values and updates
+    //          viewPanel
+    //          if loadButton pressed, displays data from JSON_STORE on viewPanel
+    //          if saveButton pressed, writes data from contactList to JSON_STORE and displays new SavedDialog
     @Override
     public void actionPerformed(ActionEvent e) {
         String actionCommand = e.getActionCommand();
@@ -212,6 +268,7 @@ public class GUI extends UI implements ActionListener {
         }
     }
 
+    // starts the application
     public static void main(String[] args) {
         new GUI();
     }

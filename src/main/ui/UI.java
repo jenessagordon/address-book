@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
+// Represents a UI of an address book application that allows for data persistence
 public class UI {
     protected static final String JSON_STORE = "./data/contactList.json";
     protected ContactList contactList = new ContactList();
