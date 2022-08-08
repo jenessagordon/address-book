@@ -42,6 +42,7 @@ public class ContactList implements Writeable {
         return listOfContacts;
     }
 
+    // EFFECTS: returns this as a JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

@@ -173,7 +173,7 @@ public class GUI extends UI implements ActionListener {
         viewPanelTextArea.setEditable(false);
         viewPanelTextArea.setLineWrap(true);
         viewPanelTextArea.setSize(1200, 1500);
-        viewPanelTextArea.setText("YOUR CONTACT LIST:");
+        viewPanelTextArea.setText("YOUR CONTACT LIST (ordered by category):");
         JScrollPane viewScrollPane = new JScrollPane();
         viewScrollPane.setViewportView(viewPanelTextArea);
 
@@ -184,7 +184,7 @@ public class GUI extends UI implements ActionListener {
     // MODIFIES: this
     // EFFECTS: fills viewPanel with text representing what is currently in contactList
     private void updateViewPanel() {
-        String viewPanelTextAreaText = "YOUR CONTACT LIST:" + "\n" + listOfContactsToString();
+        String viewPanelTextAreaText = "YOUR CONTACT LIST (ordered by category):" + "\n" + listOfContactsToString();
         viewPanelTextArea.setText(viewPanelTextAreaText);
     }
 

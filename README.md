@@ -41,7 +41,8 @@ some earlier time.
   - adding the desired information to the text fields labelled "Full name:", "Address:", "Phone number:", "Email:", 
   "Birthday:", "Today's date:", "Location met:", and "Category that is one of 'family', 'friend', 'work', or 'other':", 
   then
-  - clicking the button labelled "Add Contact".
+  - clicking the button labelled "Add Contact". If enough contacts are added, a scroll bar will appear so that you can 
+  still view all the contacts you've added.
 - You can generate the second required event by:
   - entering the exact full name of the contact you wish to remove into the text field labelled "Delete the contact 
   with the following full name: (press enter)", then
@@ -52,5 +53,5 @@ displays my visual component. You can close this dialog by clicking the button l
 - You can reload the state of my application by:
   - running the application from the GUI class, then
   - clicking the button labelled "Load Address Book". Note that in order to notice this button's behaviour, the loaded 
-  address book needs to be different than the address book already displayed in the view scroll pane on the right side of 
+  address book needs to be different from the address book already displayed in the view scroll pane on the right side of 
   the window.

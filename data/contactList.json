@@ -1,1 +1,82 @@
-{"listOfContacts": []}
+{"listOfContacts": [
+    {
+        "birthday": "b",
+        "address": "b",
+        "fullName": "b",
+        "phoneNum": "b",
+        "locationMet": "b",
+        "category": "OTHER",
+        "email": "b",
+        "dateAdded": "b"
+    },
+    {
+        "birthday": "c",
+        "address": "c",
+        "fullName": "c",
+        "phoneNum": "c",
+        "locationMet": "b",
+        "category": "OTHER",
+        "email": "c",
+        "dateAdded": "b"
+    },
+    {
+        "birthday": "ghkc",
+        "address": "f",
+        "fullName": "dfgj",
+        "phoneNum": "gfgh",
+        "locationMet": "gh",
+        "category": "OTHER",
+        "email": "c",
+        "dateAdded": "b"
+    },
+    {
+        "birthday": "k",
+        "address": "b",
+        "fullName": "jbkl",
+        "phoneNum": "bjkl",
+        "locationMet": "hjk",
+        "category": "OTHER",
+        "email": "bj",
+        "dateAdded": "j"
+    },
+    {
+        "birthday": "j",
+        "address": "b",
+        "fullName": "gh",
+        "phoneNum": "oo",
+        "locationMet": "hjk",
+        "category": "OTHER",
+        "email": "k",
+        "dateAdded": "hjkk"
+    },
+    {
+        "birthday": "j",
+        "address": "n",
+        "fullName": "",
+        "phoneNum": "l",
+        "locationMet": "j",
+        "category": "WORK",
+        "email": "kn",
+        "dateAdded": "i"
+    },
+    {
+        "birthday": "k",
+        "address": "k",
+        "fullName": "l",
+        "phoneNum": "kKm",
+        "locationMet": "k",
+        "category": "FAMILY",
+        "email": "k",
+        "dateAdded": "k"
+    },
+    {
+        "birthday": "n",
+        "address": "o",
+        "fullName": "p",
+        "phoneNum": "o",
+        "locationMet": "k",
+        "category": "FRIEND",
+        "email": "k",
+        "dateAdded": "k"
+    }
+]}

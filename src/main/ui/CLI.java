@@ -4,8 +4,8 @@ import model.Contact;
 
 import java.util.Scanner;
 
-// Address book application that lets user add Contacts, remove Contacts, and print all of their contacts to the
-// console (ordered by Category). Code in this class inspired by/copied from
+// Represents an address book application that lets user add Contacts, remove Contacts, and print all of their contacts
+// to the console (ordered by Category). Code in this class inspired by/copied from
 // https://github.students.cs.ubc.ca/CPSC210/TellerApp and https://github.students.cs.ubc.ca/CPSC210/
 // JsonSerializationDemo/blob/d31979d8a993d63c3a8c13c8add7f9d1753777b6/src/main/ui/WorkRoomApp.java
 public class CLI extends UI {
