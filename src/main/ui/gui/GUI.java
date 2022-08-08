@@ -11,9 +11,18 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 // Represents a GUI for an address book that allows for data persistence
+//TODO remove code duplication, improve readability
 public class GUI extends UI implements ActionListener {
-    private JTextArea viewPanelTextArea;
-    private JFrame addressBookWindow;
+    private JLabel addContactLabel;
+    private JLabel addContactEmptyLabel;
+    private JLabel fullNameLabel;
+    private JLabel addressLabel;
+    private JLabel phoneNumLabel;
+    private JLabel emailLabel;
+    private JLabel birthdayLabel;
+    private JLabel dateAddedLabel;
+    private JLabel locationMetLabel;
+    private JLabel categoryLabel;
     private JTextField fullNameAddTextField;
     private JTextField addressAddTextField;
     private JTextField phoneNumAddTextField;
@@ -22,9 +31,25 @@ public class GUI extends UI implements ActionListener {
     private JTextField dateAddedAddTextField;
     private JTextField locationMetAddTextField;
     private JTextField categoryAddTextField;
+    private JLabel addContactButtonLabel;
+    private JButton addContactButton;
+
+    private JLabel deleteContactLabel;
+    private JLabel fullNameDeleteLabel;
+    private JButton loadButton;
+    private JButton saveButton;
+
     private JTextField fullNameDeleteTextField;
-    JPanel leftPanel;
-    JPanel rightPanel;
+
+    private JPanel addContactPanel;
+    private JPanel deleteContactLoadSavePanel;
+
+    private JTextArea viewPanelTextArea;
+
+    private JPanel leftPanel;
+    private JPanel rightPanel;
+
+    private JFrame addressBookWindow;
 
     // EFFECTS: constructs the window in which the address book is displayed
     public GUI() {
@@ -34,30 +59,45 @@ public class GUI extends UI implements ActionListener {
     }
 
     private void makeLeftPanel() {
-        // components related to leftPanel
-        // addContactPanel
-        JLabel addContactLabel = new JLabel("ADD CONTACT");
-        JLabel addContactEmptyLabel = new JLabel();
-        JLabel fullNameLabel = new JLabel("Full name:");
+        makeAddContactPanel();
+        makeDeleteContactLoadSavePanel();
+
+        leftPanel = new JPanel(new GridLayout(2, 1));
+        leftPanel.add(addContactPanel);
+        leftPanel.add(deleteContactLoadSavePanel);
+    }
+
+    private void makeAddContactPanel() {
+        makeAddContactComponents();
+        addContactPanel = new JPanel(new GridLayout(10, 2));
+        addAddContactPanelComponents();
+    }
+
+    private void makeAddContactComponents() {
+        addContactLabel = new JLabel("ADD CONTACT");
+        addContactEmptyLabel = new JLabel();
+        fullNameLabel = new JLabel("Full name:");
         fullNameAddTextField = new JTextField();
-        JLabel addressLabel = new JLabel("Address:");
+        addressLabel = new JLabel("Address:");
         addressAddTextField = new JTextField();
-        JLabel phoneNumLabel = new JLabel("Phone number:");
+        phoneNumLabel = new JLabel("Phone number:");
         phoneNumAddTextField = new JTextField();
-        JLabel emailLabel = new JLabel("Email:");
+        emailLabel = new JLabel("Email:");
         emailAddTextField = new JTextField();
-        JLabel birthdayLabel = new JLabel("Birthday:");
+        birthdayLabel = new JLabel("Birthday:");
         birthdayAddTextField = new JTextField();
-        JLabel dateAddedLabel = new JLabel("Today's date:");
+        dateAddedLabel = new JLabel("Today's date:");
         dateAddedAddTextField = new JTextField();
-        JLabel locationMetLabel = new JLabel("Location met:");
+        locationMetLabel = new JLabel("Location met:");
         locationMetAddTextField = new JTextField();
-        JLabel categoryLabel = new JLabel("Category that is one of 'family', 'friend', 'work', or 'other':");
+        categoryLabel = new JLabel("Category that is one of 'family', 'friend', 'work', or 'other':");
         categoryAddTextField = new JTextField();
-        JButton addContactButton = new JButton("Add Contact");
+        addContactButton = new JButton("Add Contact");
         addContactButton.addActionListener(this);
-        JLabel addContactButtonLabel = new JLabel();
-        JPanel addContactPanel = new JPanel(new GridLayout(10, 2));
+        addContactButtonLabel = new JLabel();
+    }
+
+    private void addAddContactPanelComponents() {
         addContactPanel.add(addContactLabel);
         addContactPanel.add(addContactEmptyLabel);
         addContactPanel.add(fullNameLabel);
@@ -78,11 +118,11 @@ public class GUI extends UI implements ActionListener {
         addContactPanel.add(categoryAddTextField);
         addContactPanel.add(addContactButtonLabel);
         addContactPanel.add(addContactButton);
-        //TODO remove addContactFieldsPanel code duplication
+    }
 
-        // deleteContactPanel
-        JLabel deleteContactLabel = new JLabel("DELETE CONTACT");
-        JLabel fullNameDeleteLabel = new JLabel("Delete the contact with the following full name: (press enter)");
+    private void makeDeleteContactLoadSavePanel() {
+        deleteContactLabel = new JLabel("DELETE CONTACT");
+        fullNameDeleteLabel = new JLabel("Delete the contact with the following full name: (press enter)");
         fullNameDeleteTextField = new JTextField();
         fullNameDeleteTextField.addKeyListener(new KeyAdapter() {
             @Override
@@ -93,44 +133,45 @@ public class GUI extends UI implements ActionListener {
                 }
             }
         });
-        JButton loadButton = new JButton("Load Address Book");
-        JButton saveButton = new JButton("Save Address Book");
+        loadButton = new JButton("Load Address Book");
+        saveButton = new JButton("Save Address Book");
         loadButton.addActionListener(this);
         saveButton.addActionListener(this);
-        JPanel deleteContactPanel = new JPanel(new GridLayout(10, 2));
-        deleteContactPanel.add(deleteContactLabel);
-        deleteContactPanel.add(fullNameDeleteLabel);
-        deleteContactPanel.add(fullNameDeleteTextField);
-        deleteContactPanel.add(new JLabel());
-        deleteContactPanel.add(new JLabel());
-        deleteContactPanel.add(new JLabel());
-        deleteContactPanel.add(new JLabel());
-        deleteContactPanel.add(new JLabel());
-        deleteContactPanel.add(loadButton);
-        deleteContactPanel.add(saveButton);
-
-        leftPanel = new JPanel(new GridLayout(2, 1));
-        leftPanel.setBackground(Color.red);
-        //TODO ^ remove after implementation complete
-        leftPanel.add(addContactPanel);
-        leftPanel.add(deleteContactPanel);
+        deleteContactLoadSavePanel = new JPanel(new GridLayout(10, 2));
+        addDeleteContactLoadSavePanelComponents();
     }
 
+    private void addDeleteContactLoadSavePanelComponents() {
+        deleteContactLoadSavePanel.add(deleteContactLabel);
+        deleteContactLoadSavePanel.add(fullNameDeleteLabel);
+        deleteContactLoadSavePanel.add(fullNameDeleteTextField);
+        deleteContactLoadSavePanel.add(new JLabel());
+        deleteContactLoadSavePanel.add(new JLabel());
+        deleteContactLoadSavePanel.add(new JLabel());
+        deleteContactLoadSavePanel.add(new JLabel());
+        deleteContactLoadSavePanel.add(new JLabel());
+        deleteContactLoadSavePanel.add(loadButton);
+        deleteContactLoadSavePanel.add(saveButton);
+    }
+
+
     private void makeRightPanel() {
-        // viewPanel
         viewPanelTextArea = new JTextArea();
         viewPanelTextArea.setEditable(false);
         viewPanelTextArea.setLineWrap(true);
         viewPanelTextArea.setSize(1200, 1500);
         viewPanelTextArea.setText("YOUR CONTACT LIST:");
-        JScrollPane viewPanel = new JScrollPane();
-        viewPanel.setViewportView(viewPanelTextArea);
+        JScrollPane viewScrollPane = new JScrollPane();
+        viewScrollPane.setViewportView(viewPanelTextArea);
 
-        // rightPanel
         rightPanel = new JPanel(new GridLayout(1, 1));
-        rightPanel.setBackground(Color.blue);
-        //TODO ^ remove after implementation complete
-        rightPanel.add(viewPanel);
+        rightPanel.add(viewScrollPane);
+    }
+
+    // EFFECTS: fills viewPanel with text representing what is currently in contactList
+    private void updateViewPanel() {
+        String viewPanelTextAreaText = "YOUR CONTACT LIST:" + "\n" + listOfContactsToString();
+        viewPanelTextArea.setText(viewPanelTextAreaText);
     }
 
     private void makeAddressBookWindow() {
@@ -143,15 +184,9 @@ public class GUI extends UI implements ActionListener {
         addressBookWindow.add(rightPanel);
     }
 
-    // EFFECTS: fills viewPanel with text representing what is currently in contactList
-    private void updateViewPanel() {
-        String viewPanelTextAreaText = "YOUR CONTACT LIST:" + "\n" + listOfContactsToString();
-        viewPanelTextArea.setText(viewPanelTextAreaText);
-    }
-
     // MODIFIES: this
     // EFFECTS: if addContactButton pressed, adds contact to contactList from given JTextField values and updates
-    //          viewPanel
+    //             viewPanel
     //          if loadButton pressed, displays data from JSON_STORE on viewPanel
     //          if saveButton pressed, writes data from contactList to JSON_STORE and displays new SavedDialog
     @Override

@@ -52,5 +52,5 @@ displays my visual component. You can close this dialog by clicking the button l
 - You can reload the state of my application by:
   - running the application from the GUI class, then
   - clicking the button labelled "Load Address Book". Note that in order to notice this button's behaviour, the loaded 
-  address book needs to be different than the address book already displayed in the view panel on the right side of 
+  address book needs to be different than the address book already displayed in the view scroll pane on the right side of 
   the window.
