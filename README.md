@@ -55,3 +55,24 @@ displays my visual component. You can close this dialog by clicking the button l
   - clicking the button labelled "Load Address Book". Note that in order to notice this button's behaviour, the loaded 
   address book needs to be different from the address book already displayed in the view scroll pane on the right side of 
   the window.
+
+# Phase 4: Task 2
+- Performing the set of actions: open application > click "Add Contact" button > click "Add Contact" button > 
+focus on delete contact text field > type desired contact name > press Enter > click "Add Contact" button > 
+type desired contact name > press Enter > close application
+results in the following information being printed to the console
+
+Thu Aug 11 15:48:45 PDT 2022
+Contact added.
+
+Thu Aug 11 15:48:46 PDT 2022
+Contact added.
+
+Thu Aug 11 15:48:51 PDT 2022
+Name of desired contact to be deleted submitted.
+
+Thu Aug 11 15:48:52 PDT 2022
+Contact added.
+
+Thu Aug 11 15:48:56 PDT 2022
+Name of desired contact to be deleted submitted.

@@ -2,15 +2,19 @@ package ui;
 
 import model.Contact;
 import model.ContactList;
+import model.Event;
+import model.EventLog;
+import model.exception.LogException;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+import sun.rmi.runtime.Log;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
 // Represents a UI of an address book application that allows for data persistence
-public class UI {
+public class UI implements LogPrinter {
     protected static final String JSON_STORE = "./data/contactList.json";
     protected ContactList contactList = new ContactList();
     protected JsonWriter jsonWriter = new JsonWriter(JSON_STORE);
@@ -85,6 +89,19 @@ public class UI {
             System.out.println("Loaded contact list from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    /**
+     * Prints the log
+     *
+     * @param el the event log to be printed
+     * @throws LogException when printing fails for any reason
+     */
+    @Override
+    public void printLog(EventLog el) throws LogException {
+        for (Event next : el) {
+            System.out.println(next.toString() + "\n");
         }
     }
 }

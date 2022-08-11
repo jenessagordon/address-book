@@ -27,6 +27,7 @@ public class ContactList implements Writeable {
                            String birthday, String dateAdded,
                            String locationMet, Contact.Category category) {
         listOfContacts.add(new Contact(fullName, address, phoneNum, email, birthday, dateAdded, locationMet, category));
+        EventLog.getInstance().logEvent(new Event("Contact added."));
     }
     // TODO: if time, change add contact method to use fewer parameters (use addThingy method in the data persistence
     //  example program they gave us in Phase 2 of the project)
@@ -36,6 +37,7 @@ public class ContactList implements Writeable {
     // EFFECTS: removes Contact with given name from listOfContacts
     public void removeContact(String fullName) {
         listOfContacts.removeIf(c -> (Objects.equals(c.getFullName(), fullName)));
+        EventLog.getInstance().logEvent(new Event("Name of desired contact to be deleted submitted."));
     }
 
     public List<Contact> getListOfContacts() {

@@ -1,14 +1,13 @@
 package ui.gui;
 
 import model.Contact;
+import model.EventLog;
+import model.exception.LogException;
 import ui.UI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 
 // Represents a GUI for an address book that allows for data persistence
 //TODO remove code duplication, improve readability
@@ -195,9 +194,24 @@ public class GUI extends UI implements ActionListener {
         addressBookWindow.setLayout(new GridLayout(1, 2));
         addressBookWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addressBookWindow.setSize(2880, 1800);
-        addressBookWindow.setVisible(true);
         addressBookWindow.add(leftPanel);
         addressBookWindow.add(rightPanel);
+        addressBookWindow.setVisible(true);
+        addressBookWindow.addWindowListener(new WindowAdapter() {
+
+            // MODIFIES: this
+            // EFFECTS: prints all event logs to the console and exits the program
+            @Override
+            public void windowClosing(WindowEvent we) {
+                UI ui = new UI();
+                try {
+                    ui.printLog(EventLog.getInstance());
+                } catch (LogException e) {
+                    System.out.println("LogException thrown.");
+                }
+                System.exit(0);
+            }
+        });
     }
 
     // MODIFIES: this
