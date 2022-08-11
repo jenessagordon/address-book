@@ -76,3 +76,5 @@ Contact added.
 
 Thu Aug 11 15:48:56 PDT 2022
 Name of desired contact to be deleted submitted.
+
+# Phase 4: Task 3
