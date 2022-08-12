@@ -78,3 +78,27 @@ Thu Aug 11 15:48:56 PDT 2022
 Name of desired contact to be deleted submitted.
 
 # Phase 4: Task 3
+Refactoring possibilities: 
+
+- I could find a way to connect SavedDialog and GUI because SavedDialog is used exclusively in GUI. I made a 
+package model.gui for this purpose, but the connection between the two cannot easily be seen from the UML class diagram. 
+GUI cannot extend any other classes and SavedDialog cannot be turned into an interface because it has a non-abstract 
+method, so this challenge might be overcome by defining the SavedDialog class inside of GUI. Nesting like this also 
+improves abstraction and makes my code more readable.
+
+- EventLog and the class and interface that are connected with it have no connection with LogPrinter in the diagram, 
+despite the fact that EventLog and LogPrinter are conceptually related. If EventLog were more connected with LogPrinter, 
+it would also be more clear that ContactList uses methods from EventLog/Event. I could perhaps connect the two by 
+making an interface that they could both implement. You could argue, however, that because some details from EventLog 
+are, by their static nature, meant to be accessible globally, it does not make sense to restrict EventLog to being 
+connected with certain classes/interfaces. While that is true, there are many methods in other classes 
+that are public (and thus accessible globally), that one still tries to group with other 
+classes/abstract classes/interfaces.
+
+- JsonReader, and JsonWriter are not directly connected with each other, despite the fact that they both involve 
+data persistence and are "inverses" of one another. I could create a superclass that JsonReader and JsonWriter would
+extend which would contain the JSON_STORE, jsonWriter, and jsonReader fields contained in UI. This would make more
+conceptual sense and would ensure that more data persistence-related behaviour is separated from UI, increasing the 
+degree to which UI satisfies the SRP. Furthermore, it would ensure that all of these fields are in the same place, 
+making it less likely that someone would accidentally use a different path for the source and destination (even though 
+I want the source and destination to be the same).
