@@ -12,18 +12,15 @@ public class SavedDialog extends JDialog implements ActionListener {
     public SavedDialog(JFrame parent) {
         super(parent);
 
-        JLabel gotItLabel = new JLabel("Got it!");
-        ImageIcon smiley = new ImageIcon("smiley.png");
-        JLabel smileyLabel = new JLabel();
-        smileyLabel.setIcon(smiley);
+        JLabel gotItLabel = new JLabel("Your address book "
+                + "was saved successfully.");
         JButton okButton = new JButton("OK");
         okButton.setSize(50, 50);
         okButton.addActionListener(this);
 
-        this.setSize(500, 500);
-        this.setLayout(new GridLayout(3, 1)); //TODO improve layout
+        this.setSize(300, 200);
+        this.setLayout(new GridLayout(2, 1));
         this.add(gotItLabel);
-        this.add(smileyLabel);
         this.add(okButton);
         this.setModal(true);
         this.setVisible(true);
