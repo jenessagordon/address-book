@@ -10,7 +10,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 // Represents a GUI for an address book that allows for data persistence
-//TODO remove code duplication, improve readability
 public class GUI extends UI implements ActionListener {
     private JLabel addContactLabel;
     private JLabel addContactEmptyLabel;

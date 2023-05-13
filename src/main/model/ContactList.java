@@ -29,8 +29,6 @@ public class ContactList implements Writeable {
         listOfContacts.add(new Contact(fullName, address, phoneNum, email, birthday, dateAdded, locationMet, category));
         EventLog.getInstance().logEvent(new Event("Contact added."));
     }
-    // TODO: if time, change add contact method to use fewer parameters (use addThingy method in the data persistence
-    //  example program they gave us in Phase 2 of the project)
 
     // REQUIRES: fullName is a fullName of exactly one contact in listOfContacts
     // MODIFIES: this
