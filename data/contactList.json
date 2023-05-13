@@ -1,22 +1,3 @@
-{"listOfContacts": [
-    {
-        "birthday": "a",
-        "address": "a",
-        "fullName": "a",
-        "phoneNum": "a",
-        "locationMet": "a",
-        "category": "FAMILY",
-        "email": "a",
-        "dateAdded": "a"
-    },
-    {
-        "birthday": "c",
-        "address": "c",
-        "fullName": "c",
-        "phoneNum": "c",
-        "locationMet": "c",
-        "category": "FRIEND",
-        "email": "c",
-        "dateAdded": "c"
-    }
-]}
+{
+  "listOfContacts": []
+}
