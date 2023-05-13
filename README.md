@@ -55,6 +55,9 @@ Name of desired contact to be deleted submitted.
 
 # Refactoring Possibilities
 
+Note: the UML class diagram is included in the project and is titled 
+UML_Design_Diagram.jpeg. 
+
 - I could find a way to connect SavedDialog and GUI because SavedDialog is used exclusively in GUI. I made a
   package model.gui for this purpose, but the connection between the two cannot easily be seen from the UML class diagram.
   GUI cannot extend any other classes and SavedDialog cannot be turned into an interface because it has a non-abstract
